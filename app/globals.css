@@ -7,6 +7,25 @@
   --foreground: #171717;
 }
 
+
+@font-face {
+  font-family: "PP Mori";
+  src: url("/fonts/PPMori-Regular.woff2") format("woff2"),
+       url("/fonts/PPMori-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Mori";
+  src: url("/fonts/PPMori-SemiBold.woff2") format("woff2"),
+       url("/fonts/PPMori-SemiBold.otf") format("opentype");
+  font-weight: semibold;
+  font-style: normal;
+}
+
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -18,4 +37,13 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-container {
+  background-image: url('https://res.cloudinary.com/ddxssowqb/image/upload/v1741386811/ronald-langeveld-g622enRZeec-unsplash_1_cjik98.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; 
+  width: 100%; 
 }
