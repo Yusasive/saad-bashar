@@ -7,24 +7,49 @@
   --foreground: #171717;
 }
 
-
 @font-face {
   font-family: "PP Mori";
-  src: url("/fonts/PPMori-Regular.woff2") format("woff2"),
-       url("/fonts/PPMori-Regular.otf") format("opentype");
+  src:
+    url("/fonts/PPMori-Regular.woff2") format("woff2"),
+    url("/fonts/PPMori-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "PP Mori";
-  src: url("/fonts/PPMori-SemiBold.woff2") format("woff2"),
-       url("/fonts/PPMori-SemiBold.otf") format("opentype");
+  src:
+    url("/fonts/PPMori-SemiBold.woff2") format("woff2"),
+    url("/fonts/PPMori-SemiBold.otf") format("opentype");
   font-weight: semibold;
   font-style: normal;
 }
 
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 
+@keyframes marquee-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right linear infinite;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -40,10 +65,27 @@ body {
 }
 
 .bg-container {
-  background-image: url('https://res.cloudinary.com/ddxssowqb/image/upload/v1741386811/ronald-langeveld-g622enRZeec-unsplash_1_cjik98.png');
+  background-image: url("https://res.cloudinary.com/ddxssowqb/image/upload/v1741386811/ronald-langeveld-g622enRZeec-unsplash_1_cjik98.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh; 
-  width: 100%; 
+  height: 100vh;
+  width: 100%;
 }
+
+.bg-footer {
+  background-image: url("https://res.cloudinary.com/ddxssowqb/image/upload/v1741670952/Footer_kkl8ln.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.bg-hero1 {
+  background-image: url("https://res.cloudinary.com/ddxssowqb/image/upload/v1741672416/ronald-langeveld-g622enRZeec-unsplash_1_1_omomz2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+

@@ -2,23 +2,24 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import FaceLogo from "@/public/images/projects/FaceLogo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 w-full bg-[#19191933] backdrop-blur-lg  z-50">
-      <div className="mx-6 lg:mx-12 py-4 flex border-b border-gray-400 justify-between items-center">
-        {/* Profile Image */}
+      <div className="mx-6 lg:mx-12 py-6 flex border-b border-gray-400 justify-between items-center">
         <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center">
-          <img
-            src="/profile.png"
+          <Image
+            src={FaceLogo}
             alt="Profile"
             className="w-full h-full rounded-full object-cover"
+            width={66}
+            height={66}
           />
         </div>
-
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-20 text-[#CDCDCD] text-xl font-mori font-semibold">
           <div className="items-center space-x-6">
             {" "}
@@ -80,7 +81,7 @@ export default function Navbar() {
           </a>
           <Link
             href="/book-call"
-            className="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition"
+            className="border border-white p-4 rounded-lg hover:bg-white hover:text-black transition"
           >
             Book a Call ↗
           </Link>
