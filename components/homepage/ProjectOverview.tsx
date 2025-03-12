@@ -37,7 +37,7 @@ export default function ProjectOverview() {
 
   return (
     <div className="p-6 md:p-12 bg-[#0F0F0F]">
-      <h1 className="text-[#F3F3F3] text-5xl font-semibold font-mori pb-6">
+      <h1 className="text-[#F3F3F3] text-3xl md:text-5xl font-semibold font-mori pb-6">
         Projects
       </h1>
 
@@ -54,7 +54,7 @@ export default function ProjectOverview() {
               className="rounded-2xl border border-[#CDCDCD33] p-6 space-y-4 pt-8"
             >
               <div className="flex flex-row justify-between">
-                <p className="text-4xl text-[#F3F3F3] font-mori">
+                <p className="text-2xl md:text-4xl text-[#F3F3F3] font-mori">
                   {project.title}
                 </p>
                 <p>
@@ -62,14 +62,14 @@ export default function ProjectOverview() {
                 </p>
               </div>
               <div className="flex flex-row justify-between">
-                <p className="text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
+                <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
                   {project.categories.map((cat, index) => (
                     <span key={index}>
                       {cat} {index < project.categories.length - 1 && "•"}
                     </span>
                   ))}
                 </p>
-                <p className="text-[28px] text-[#CDCDCD] font-semibold font-mori">
+                <p className="text-xl md:text-[28px] text-[#CDCDCD] font-semibold font-mori">
                   {project.year}
                 </p>
               </div>
@@ -88,7 +88,7 @@ export default function ProjectOverview() {
 
       <div className="flex justify-center items-center py-8">
         <Link href="/projects">
-          <button className="text-[#F3F3F3] text-xl font-normal font-mori border border-[#D0D0D0] rounded-lg px-6 py-4">
+          <button className="text-[#F3F3F3] text-sm md:text-xl font-normal font-mori border border-[#D0D0D0] rounded-lg px-6 py-4">
             View More ↗
           </button>
         </Link>

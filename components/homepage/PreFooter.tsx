@@ -1,4 +1,13 @@
+import { DiIllustrator } from "react-icons/di";
 import Marquee from "../homepage/Marquee";
+import {
+  Photoshop,
+  Framer,
+  Sketch,
+  AfterEffects,
+  Audition,
+  Premiere,
+} from "../SvgLogo";
 
 export default function PreFooter() {
   const row1 = [
@@ -10,11 +19,13 @@ export default function PreFooter() {
   ];
 
   const row2 = [
-    { text: "Photoshop", icon: "/icons/photoshop.svg" },
-    { text: "Framer", icon: "/icons/framer.svg" },
-    { text: "Premiere Pro", icon: "/icons/premiere.svg" },
-    { text: "Sketch", icon: "/icons/sketch.svg" },
-    { text: "After Effects", icon: "/icons/aftereffects.svg" },
+    { text: "Illustrator", icon: <DiIllustrator /> },
+    { text: "Photoshop", icon: <Photoshop /> },
+    { text: "Framer", icon: <Framer /> },
+    { text: "Premiere Pro", icon: <Premiere /> },
+    { text: "Sketch", icon: <Sketch /> },
+    { text: "After Effects", icon: <AfterEffects /> },
+    { text: "Audition", icon: <Audition /> },
   ];
 
   const row3 = [

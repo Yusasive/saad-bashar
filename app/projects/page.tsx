@@ -44,10 +44,10 @@ export default function ProjectOverview() {
 
   return (
     <div className="p-6 md:p-12 bg-[#0F0F0F] mt-20">
-      <h1 className="text-[#F3F3F3] text-5xl font-semibold font-mori pb-6">
+      <h1 className="text-[#F3F3F3] text-3xl md:text-5xl font-semibold font-mori pb-2 md:pb-6">
         Projects
       </h1>
-      <p className="text-[#F3F3F3] text-[44px] font-normal pt-3 pb-24">
+      <p className="text-[#F3F3F3] text-2xl md:text-[44px] font-normal pt-3 pb-12 md:pb-24">
         Creating meaningful connections, crafting intuitive <br /> experiences,
         and driving business success. One Project at a time.
       </p>
@@ -57,7 +57,7 @@ export default function ProjectOverview() {
           <div key={project._id}>
             <div className="rounded-2xl border border-[#CDCDCD33] p-6 space-y-4 pt-8">
               <div className="flex flex-row justify-between">
-                <p className="text-4xl text-[#F3F3F3] font-mori">
+                <p className="text-xl md:text-4xl text-[#F3F3F3] font-mori">
                   {project.title}
                 </p>
                 <Link href={`/projects/${project._id}`}>
@@ -71,10 +71,10 @@ export default function ProjectOverview() {
                 </Link>
               </div>
               <div className="flex flex-row justify-between">
-                <p className="text-2xl text-[#CDCDCD] font-semibold font-mori">
+                <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori">
                   {project.categories.join(" • ")}
                 </p>
-                <p className="text-[28px] text-[#CDCDCD] font-semibold font-mori">
+                <p className="text-lg md:text-[28px] text-[#CDCDCD] font-semibold font-mori">
                   {project.year}
                 </p>
               </div>
@@ -88,7 +88,7 @@ export default function ProjectOverview() {
               </div>
             </div>
             <div className="py-6">
-              <p className="text-[#F3F3F3] text-2xl font-normal">
+              <p className="text-[#F3F3F3] text-base md:text-2xl font-normal">
                 {project.description}
               </p>
             </div>
