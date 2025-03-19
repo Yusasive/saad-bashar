@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import coolicon from "@/public/icons/coolicon.png";
-import Vector from "@/public/icons/Vector.png";
+import { motion } from "framer-motion";
+import { Clock, Building, Tags, Mouse } from "@/components/SvgLogo";
+import projectData from "@/public/data/product.json";
 
 interface Project {
   _id: string;
-  title: string;
+  subTitle: string;
   categories: string[];
   year: number;
   image: string;
@@ -20,123 +20,186 @@ interface Project {
   description: string;
   companyLogo: string;
   website: string;
+  buttonWord: string;
 }
 
 export default function ProjectDetails() {
   const { id } = useParams();
-  const [project, setProject] = useState<Project | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const router = useRouter();
 
-  useEffect(() => {
-    const fetchProject = async () => {
-      try {
-        const res = await fetch(`/api/posts/${id}`);
-        if (!res.ok) throw new Error("Failed to fetch project");
-        const data = await res.json();
-        setProject(data);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (id) fetchProject();
-  }, [id]);
-
-  if (loading)
-    return (
-      <p className="text-white text-2xl text-center py-72">
-        Loading project...
-      </p>
-    );
-  if (error) return <p className="text-red-500 text-center">{error}</p>;
+  const project = projectData.find((proj) => proj._id === id);
 
   if (!project)
-    return <p className="text-white text-center py-52">Project not found.</p>;
+    return (
+      <motion.p
+        className="text-white text-center py-52"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        Project not found.
+      </motion.p>
+    );
+
+  const handleMouseClick = () => {
+    router.push(`/projects/${project._id}/overview/${project.overview}`);
+  };
 
   return (
     <>
-      <div className="py-8 bg-[#111112] mt-20 px-6 md:px-12">
+      <motion.div
+        className="py-8 bg-[#111112] mt-20 px-6 md:px-12"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <Link
           href="/projects"
           className="text-2xl text-[#F3F3F3] font-normal font-mori"
         >
           ⇽ Back to Projects
         </Link>
-      </div>
-      <div className="p-6 md:p-12 bg-[#111112]">
+      </motion.div>
+
+      <motion.div
+        className="p-6 md:p-12 bg-[#111112]"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="flex flex-col md:flex-row gap-10">
-          <div className="flex-1 space-y-6">
-            <div className="flex justify-between items-center">
+          <motion.div
+            className="flex-1 space-y-6"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { staggerChildren: 0.2 },
+              },
+            }}
+          >
+            <motion.div
+              className="flex justify-between items-center"
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
               <Image
                 src={project.companyLogo}
-                alt={project.title}
+                alt={project.subTitle}
                 width={102}
                 height={72}
                 className="object-contain"
               />
-              <a
+              <motion.a
                 href={project.website}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#1E1E1E] text-[#F3F3F3] text-lg font-semibold px-4 py-3 rounded-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 200 }}
               >
-                View Website
-              </a>
-            </div>
+                {project.buttonWord}
+              </motion.a>
+            </motion.div>
 
-            <h1 className="text-[#F3F3F3] text-3xl md:text-5xl font-mori font-semibold">
-              {project.title}
-            </h1>
+            <motion.h1
+              className="text-[#F3F3F3] text-3xl md:text-5xl font-mori font-semibold"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
+              {project.subTitle}
+            </motion.h1>
 
-            <div className="flex flex-wrap gap-4 text-[#F3F3F3] font-semibold">
-              <p className="flex space-x-2 text-base">
-                <Image src={Vector} alt="Vector" width={16.67} height={16.67} />{" "}
+            <motion.div
+              className="flex flex-wrap gap-4 text-[#F3F3F3] font-semibold"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
+              <p className="flex flex-row items-center space-x-2 text-base">
+                <span className="mr-1.5">
+                  <Clock />
+                </span>
                 {project.year}
               </p>
-              <p className="flex space-x-2 text-base">
-                {" "}
-                <Image
-                  src={coolicon}
-                  alt="coolicon"
-                  width={15.76}
-                  height={15.76}
-                />
-                {project.categories.join(" • ")}
+              <p className="flex flex-row items-center text-base">
+                <span className="mr-2">
+                  <Tags />
+                </span>
+                {project.categories.map((category, index) => (
+                  <span key={index} className="flex space-x-2 items-center">
+                    {category}
+                    {index < project.categories.length - 1 && (
+                      <span className="mx-3">
+                        <Building />
+                      </span>
+                    )}
+                  </span>
+                ))}
               </p>
-            </div>
+            </motion.div>
 
-            <div className="space-y-5">
+            <motion.div className="space-y-5">
               <Detail label="Users" value={project.users} />
               <Detail label="Timeline" value={project.timeline} />
               <Detail label="Role" value={project.role} />
               <Detail label="Collaborators" value={project.collaborators} />
-            </div>
-          </div>
-
-          {/* Right Section (Image) */}
-          <div className="w-full md:w-1/2">
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="w-full md:w-1/2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             <Image
               src={project.image}
-              alt={project.title}
+              alt={project.subTitle}
               width={724}
               height={543}
               className="w-full h-full object-cover rounded-lg"
             />
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
+
+      <motion.div
+        className="flex items-center justify-center py-8 bg-[#111112]"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        <motion.button
+          onClick={handleMouseClick}
+          className="cursor-pointer"
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <Mouse />
+        </motion.button>
+      </motion.div>
     </>
   );
 }
 
 function Detail({ label, value }: { label: string; value: string }) {
   return (
-    <p className="flex flex-col">
+    <motion.p
+      className="flex flex-col"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <span className="text-base text-[#CDCDCD]">{label}</span>
       <span className="text-xl text-[#F3F3F3]">{value}</span>
-    </p>
+    </motion.p>
   );
 }

@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "1",
+    "title": "BFICS - Digitizing Fire Inspection and Certification Processes",
+    "subTitle": "Digitizing Fire Inspection and Certification Processes for Buildings in Nigeria",
+    "categories": ["UI/UX", "Insurtech"],
+    "year": 2024,
+    "image": "https://res.cloudinary.com/ddxssowqb/image/upload/v1742046915/Frame_228_scgmuw.svg",
+    "users": "Federal and State Fire Service Organizations",
+    "timeline": "18 Months",
+    "role": "UI/UX Researcher and UI/UX Designer",
+    "collaborators": "CEO, COO, Product Manager, Front End and Backend Developers",
+    "description": "BFICS - Buildings Fire and Insurance Certification System enables fire personnels to inspect, fine and issue fire and insurance certificates to building owners and occupiers",
+    "companyLogo": "https://res.cloudinary.com/ddxssowqb/image/upload/v1741711979/blog-images/r4mdnkwwo70t4kelyxqs.png",
+    "website": "https://www.buildsure.ng",
+    "buttonWord": "View Website",
+    "overview": "one"
+  },
+  {
+    "_id": "2",
+    "title": "Doshup Student Savings Mobile App Casestudy",
+    "subTitle": "Growing Wealth, Growing Minds: The Future of Student Finance",
+    "categories": ["UI/UX", "Fintech"],
+    "year": 2024,
+    "image": "https://res.cloudinary.com/ddxssowqb/image/upload/v1742047243/Frame_228_1_uya5qe.svg",
+    "users": "College and University Students",
+    "timeline": "8 Months",
+    "role": "UI/UX Researcher and UI/UX Designer",
+    "collaborators": "CEO, COO, Product Manager, Front End and Backend Developers",
+    "description": "Doshup's design helps college and university students salvage their financial situation after graduation through dedicated savings, flexible investment plans, and other key features.",
+    "companyLogo": "https://res.cloudinary.com/ddxssowqb/image/upload/v1742047243/Frame_228_1_uya5qe.svg",
+    "website": "https://www.behance.net/gallery/213097111/Student-Savings-Investment-Mobile-Application",
+    "buttonWord": "View on Binance",
+    "overview": "two"
+  },
+  {
+    "_id": "3",
+    "title": "Insurance Committee Dashboard Casestudy",
+    "subTitle": "Accessing Data on Insured Buildings and Buildings Under Construction",
+    "categories": ["UI/UX", "Fintech"],
+    "year": 2024,
+    "image": "https://res.cloudinary.com/ddxssowqb/image/upload/v1742047462/macbook-16-pro-mockup-on-concrete-background-front-view_1_fkpvqx.png",
+    "users": "Nigerian National Committee in charge of monitoring building insurance, including those under construction",
+    "timeline": "6 Months",
+    "role": "UI/UX Researcher and UI/UX Designer",
+    "collaborators": "CEO, COO, Product Manager, Front End and Backend Developers",
+    "description": "Doshup's design helps college and university students salvage their financial situation after graduation through dedicated savings, flexible investment plans, and other key features.",
+    "companyLogo": "https://res.cloudinary.com/ddxssowqb/image/upload/v1742047462/macbook-16-pro-mockup-on-concrete-background-front-view_1_fkpvqx.png",
+    "website": "https://www.behance.net/gallery/215828275/Building-Insurance-Tracker-Dashboard-SaaS-Proptech",
+    "buttonWord": "View on Binance"
+  }
+]
