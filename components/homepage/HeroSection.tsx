@@ -102,7 +102,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="space-y-5 px-6 lg:px-12 mt-20 sm:mt-40"
+        className="space-y-5 px-6 lg:px-12 mt-20 md:mt-40"
       >
         <motion.h1
           initial={{ y: -20, opacity: 0 }}

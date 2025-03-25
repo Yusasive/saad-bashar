@@ -43,7 +43,7 @@ export default function Foooter() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex flex-row items-center bg-[#1E1E1E] rounded-full px-6 py-4"
+            className="flex flex-row items-center bg-[#1E1E1E] rounded-full px-2 md:px-6 py-2 md:py-4"
           >
             Book a 1:1 Call{" "}
             <span className="ml-3">
@@ -53,7 +53,7 @@ export default function Foooter() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex flex-row items-center border border-[#CDCDCD33] rounded-full px-6 py-4"
+            className="flex flex-row items-center border border-[#CDCDCD33] rounded-full px-2 md:px-6 py-2 md:py-4"
           >
             Email me{" "}
             <span className="ml-3">
