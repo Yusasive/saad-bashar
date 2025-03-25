@@ -20,7 +20,8 @@ export default function Foooter() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Let's Build <span className="text-[#8D8D8D]">Something</span> <br />
+          Let&apos;s Build <span className="text-[#8D8D8D]">Something</span>{" "}
+          <br />
           Awesome!
         </motion.h1>
         <motion.p
@@ -34,7 +35,7 @@ export default function Foooter() {
 
         {/* Buttons */}
         <motion.div
-          className="flex flex-row text-base md:text-xl text-[#F3F3F3] font-mori font-normal space-x-6 py-10"
+          className="flex flex-row text-sm md:text-xl text-[#F3F3F3] font-mori font-normal space-x-6 py-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}

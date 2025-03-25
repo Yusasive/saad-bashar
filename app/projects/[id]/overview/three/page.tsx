@@ -181,7 +181,7 @@ export default function Home() {
               the effectiveness of any solution.
             </p>
             <p className="text-4xl text-[#CDCDCD] ">
-              The Impact of "Problem Shared is a Problem Solved"
+              The Impact of &quot;Problem Shared is a Problem Solved&quot;
             </p>
             <p className="text-2xl text-[#CDCDCD] ">
               A surprising moment of support came when a designer friend shared

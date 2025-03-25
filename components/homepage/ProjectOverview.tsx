@@ -42,7 +42,7 @@ export default function ProjectOverview() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="p-6 md:p-12 bg-[#0F0F0F]"
+      className="p-6 md:p-12 pt-16 md:pt-0 bg-[#0F0F0F]"
     >
       <motion.h1
         initial={{ y: -20, opacity: 0 }}
@@ -87,7 +87,7 @@ export default function ProjectOverview() {
           }}
           className="space-y-8"
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project._id}
               variants={{

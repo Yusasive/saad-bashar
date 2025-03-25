@@ -1,206 +1,214 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Clock, Building, Tags, Mouse } from "@/components/SvgLogo";
-import projectData from "@/public/data/product.json";
+import Sidebar from "../Sidebar";
+import {
+  FirstImage,
+  SecondImage,
+  ThirdImage,
+  FourthImage,
+  FifthImage,
+  SixthImage,
+  SeventhImage,
+  EightImage,
+} from "@/components/PageThreeIcons";
+import SeeMore from "@/components/homepage/SeeMore";
 
-
-interface Project {
-  _id: string;
-  subTitle: string;
-  categories: string[];
-  year: number;
-  image: string;
-  users: string;
-  timeline: string;
-  role: string;
-  collaborators: string;
-  description: string;
-  companyLogo: string;
-  website: string;
-  buttonWord: string;
-}
-
-export default function ProjectDetails() {
-  const { id } = useParams();
-  const router = useRouter();
-
-  const project = projectData.find((proj) => proj._id === id);
-
-  if (!project)
-    return (
-      <motion.p
-        className="text-white text-center py-52"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        Project not found.
-      </motion.p>
-    );
-
-  const handleMouseClick = () => {
-    router.push(`/projects/${project._id}/overview/${project.overview}`);
-  };
+export default function Home() {
+  const sections = [
+    { id: "challenge", label: "Challenge" },
+    { id: "solution", label: "Solution" },
+    { id: "conclusion", label: "Conlusion" },
+  ];
 
   return (
     <>
-      <motion.div
-        className="py-8 bg-[#111112] mt-20 px-6 md:px-12"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Link
-          href="/projects"
-          className="text-2xl text-[#F3F3F3] font-normal font-mori"
-        >
-          ⇽ Back to Projects
-        </Link>
-      </motion.div>
+      {" "}
+      <div className="flex">
+        <Sidebar sections={sections} />
 
-      <motion.div
-        className="p-6 md:p-12 bg-[#111112]"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex flex-col md:flex-row gap-10">
-          <motion.div
-            className="flex-1 space-y-6"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { staggerChildren: 0.2 },
-              },
-            }}
+        <main className="ml-64 p-8 text-white bg-black min-h-screen pt-32">
+          <section
+            id="challenge"
+            className="mb-16 space-y-8 flex flex-col justify-center"
           >
-            <motion.div
-              className="flex justify-between items-center"
-              variants={{
-                hidden: { opacity: 0, x: -20 },
-                visible: { opacity: 1, x: 0 },
-              }}
-            >
-              <Image
-                src={project.companyLogo}
-                alt={project.subTitle}
-                width={102}
-                height={72}
-                className="object-contain"
-              />
-              <motion.a
-                href={project.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#1E1E1E] text-[#F3F3F3] text-lg font-semibold px-4 py-3 rounded-lg"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                {project.buttonWord}
-              </motion.a>
-            </motion.div>
+            <h2 className="text-xs text-[#34C759] bg-[#34C75933] w-fit border border-[#34C759] p-2 rounded text-left mt-2">
+              CHALLENGE
+            </h2>
+            <h1 className="text-5xl font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#434242] text-transparent bg-clip-text">
+              The Challenge: Access to Real-Time Building Insurance Data
+            </h1>
+            <p className="text-2xl text-[#CDCDCD] ">
+              The National Committee faced a pressing issue: they needed a
+              digital solution that would give committee members quick and
+              reliable access to real-time data on buildings, including those
+              under construction, with respect to insurance status. The main
+              challenges were:
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              <strong>Real-Time Data:</strong> Accessing up-to-date insurance
+              statistics and statuses for buildings across various regions.
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              <strong> Geographic Complexity:</strong> The need to consider
+              geographic distinctions and zoning in order to understand building
+              coverage in different areas.
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              <strong> Compliance Tracking:</strong> Verifying insurance status
+              for buildings under construction to ensure regulatory compliance.
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              With only one week to develop a solution, it was clear that
+              efficiency, clarity, and real-time data were key priorities.
+            </p>
+          </section>
 
-            <motion.h1
-              className="text-[#F3F3F3] text-3xl md:text-5xl font-mori font-semibold"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-            >
-              {project.subTitle}
-            </motion.h1>
-
-            <motion.div
-              className="flex flex-wrap gap-4 text-[#F3F3F3] font-semibold"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-            >
-              <p className="flex flex-row items-center space-x-2 text-base">
-                <span className="mr-1.5">
-                  <Clock />
-                </span>
-                {project.year}
-              </p>
-              <p className="flex flex-row items-center text-base">
-                <span className="mr-2">
-                  <Tags />
-                </span>
-                {project.categories.map((category, index) => (
-                  <span key={index} className="flex space-x-2 items-center">
-                    {category}
-                    {index < project.categories.length - 1 && (
-                      <span className="mx-3">
-                        <Building />
-                      </span>
-                    )}
-                  </span>
-                ))}
-              </p>
-            </motion.div>
-
-            <motion.div className="space-y-5">
-              <Detail label="Users" value={project.users} />
-              <Detail label="Timeline" value={project.timeline} />
-              <Detail label="Role" value={project.role} />
-              <Detail label="Collaborators" value={project.collaborators} />
-            </motion.div>
-          </motion.div>
-          <motion.div
-            className="w-full md:w-1/2"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+          <section
+            id="solution"
+            className="mb-16 space-y-8 flex flex-col justify-center"
           >
-            <Image
-              src={project.image}
-              alt={project.subTitle}
-              width={724}
-              height={543}
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </motion.div>
-        </div>
-      </motion.div>
+            <h2 className="text-xs text-[#34C759] font-normal bg-[#34C75933] w-fit border border-[#34C759] p-2 rounded text-left mt-2">
+              SOLUTION
+            </h2>
+            <h1 className="text-5xl font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#434242] text-transparent bg-clip-text">
+              A Dynamic Dashboard for Real-Time Data & Geographic Insights
+            </h1>
+            <div className="flex flex-row justify-end space-x-6">
+              <FirstImage />
+            </div>
 
-      <motion.div
-        className="flex items-center justify-center py-8 bg-[#111112]"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-      >
-        <motion.button
-          onClick={handleMouseClick}
-          className="cursor-pointer"
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <Mouse />
-        </motion.button>
-      </motion.div>
+            <p className="text-4xl text-[#CDCDCD] ">
+              Understanding User Needs through Collaboration
+            </p>
+            <div>
+              <p className="text-2xl text-[#CDCDCD] ">
+                Working within a tight deadline, I collaborated closely with the
+                tech team to brainstorm and identify the key metrics that would
+                be most valuable for the committee members. These included:
+              </p>
+              <p className="text-2xl text-[#CDCDCD] ">
+                <strong> • Total Number of Buildings</strong>
+              </p>
+              <p className="text-2xl text-[#CDCDCD] ">
+                <strong>• Insurance Statistics</strong>
+              </p>
+              <p className="text-2xl text-[#CDCDCD] ">
+                <strong> • Insurance Penetration Rate</strong>
+              </p>
+            </div>
+            <div className="flex flex-row space-x-6">
+              <SecondImage />
+            </div>
+            <div className="flex flex-row space-x-6">
+              <ThirdImage />
+            </div>
+            <p className="text-2xl text-[#CDCDCD] font-semibold ">
+              Introducing Geographic Relevance: Dynamic Map Integration
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              To add another layer of functionality, we introduced a dynamic map
+              as a central feature of the dashboard. This map provides:
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              Geographic Context <br />
+              Analytical Insights
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              This map was designed to give the committee members a
+              comprehensive, visual representation of insurance coverage across
+              Nigeria, helping them make informed decisions.
+            </p>
+            <div className="flex flex-row space-x-6">
+              <FourthImage />
+            </div>
+            <p className="text-3xl text-[#CDCDCD] ">
+              Enhancing User Interaction: Verifying and Regularizing Building
+              Insurance
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              Beyond visualizing data, we designed a feature that allowed
+              committee members to:
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              <strong>• Verify Insurance Status:</strong> Users can quickly
+              check the insurance status of buildings using a unique identifier
+              for each building.
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              <strong>• Regularize Coverage:</strong> For buildings under
+              construction, committee members can facilitate the process of
+              verifying and regularizing insurance to ensure compliance.
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              This functionality ensures that even new buildings, which may not
+              yet be fully constructed, are not left out of the system and can
+              be easily tracked for compliance.
+            </p>
+
+            <div className="flex flex-row space-x-6 justify-end">
+              <FifthImage />
+            </div>
+            <div className="flex flex-row space-x-6">
+              <SixthImage />
+            </div>
+            <div className="flex flex-row space-x-6 justify-end">
+              <SeventhImage />
+            </div>
+            <div className="flex flex-row space-x-6">
+              <EightImage />
+            </div>
+          </section>
+
+          <section
+            id="conclusion"
+            className="mb-16 space-y-8 flex flex-col justify-center"
+          >
+            <h2 className="text-xs text-[#34C759] font-normal bg-[#34C75933] w-fit border border-[#34C759] p-2 rounded text-left mt-2">
+              CONCLUSION
+            </h2>
+            <h1 className="text-5xl font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#434242] text-transparent bg-clip-text">
+              Conclusion: Key Learnings and Valuable Takeaways
+            </h1>
+            <p className="text-4xl text-[#CDCDCD] ">
+              The Power of Cross-Functional Collaboration
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              Though I was the sole designer on the project, this experience
+              reinforced the importance of teamwork. The success of the
+              dashboard was not only due to my design work but also the input
+              and expertise from other team members. It was a reminder that
+              collaboration, even when time is tight, plays a crucial role in
+              the effectiveness of any solution.
+            </p>
+            <p className="text-4xl text-[#CDCDCD] ">
+              The Impact of &quot;Problem Shared is a Problem Solved&quot;
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              A surprising moment of support came when a designer friend shared
+              a highly useful resource with me that helped expedite the design
+              process. I casually mentioned the challenge I was facing, and he
+              unexpectedly came through with exactly what I needed. This taught
+              me the value of being open about challenges with peers—often, a
+              solution comes from the most unexpected sources.
+            </p>
+            <p className="text-4xl text-[#CDCDCD] ">
+              Final Thoughts: Success in the Face of a Tight Deadline
+            </p>
+            <p className="text-2xl text-[#CDCDCD] ">
+              This project, completed in just one week, demonstrates how
+              collaboration, user-focused design, and quick thinking can lead to
+              impactful solutions even under pressure. The final product—a
+              dynamic, user-friendly dashboard—was successfully presented to the
+              committee, where it received positive feedback for further review
+              and implementation.
+            </p>
+            <h1 className="text-5xl font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#434242] text-transparent bg-clip-text">
+              Thanks for reading!
+            </h1>
+          </section>
+        </main>
+      </div>
+      <SeeMore />
     </>
-  );
-}
-
-function Detail({ label, value }: { label: string; value: string }) {
-  return (
-    <motion.p
-      className="flex flex-col"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <span className="text-base text-[#CDCDCD]">{label}</span>
-      <span className="text-xl text-[#F3F3F3]">{value}</span>
-    </motion.p>
   );
 }

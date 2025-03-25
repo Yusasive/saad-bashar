@@ -332,7 +332,7 @@ export default function Home() {
             </h1>
             <p className="text-2xl text-[#CDCDCD] ">
               1. <strong> The Importance of Fieldwork:</strong> I learned that a
-              designer's role goes beyond just creating wireframes;
+              designer&apos;s role goes beyond just creating wireframes;
               understanding the real-world context is crucial for designing
               effective solutions. Without interacting with the actual users, we
               might miss key pain points or misinterpret the needs.

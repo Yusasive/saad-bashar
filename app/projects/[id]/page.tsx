@@ -7,21 +7,6 @@ import { motion } from "framer-motion";
 import { Clock, Building, Tags, Mouse } from "@/components/SvgLogo";
 import projectData from "@/public/data/product.json";
 
-interface Project {
-  _id: string;
-  subTitle: string;
-  categories: string[];
-  year: number;
-  image: string;
-  users: string;
-  timeline: string;
-  role: string;
-  collaborators: string;
-  description: string;
-  companyLogo: string;
-  website: string;
-  buttonWord: string;
-}
 
 export default function ProjectDetails() {
   const { id } = useParams();

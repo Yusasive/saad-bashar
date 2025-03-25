@@ -16,7 +16,7 @@ export default function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 1000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -61,21 +61,20 @@ export default function HeroSection() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          className="text-[#F3F3F3] w-full sm:w-[90%] py-8 sm:py-10"
+          className="text-[#F3F3F3]  py-8 md:py-10"
         >
-          <h1 className="text-3xl md:text-5xl lg:text-[58px] font-semibold font-mori leading-tight">
-            I am a UI/UX and Product Designer,{" "}
-            <br className="hidden sm:block" />
+          <h1 className="text-xl md:text-5xl lg:text-[58px] w-[90%] font-semibold font-mori leading-tight">
+            I am a UI/UX and Product Designer,
             designing compelling{" "}
-            <span className="relative inline-block h-[50px] overflow-hidden">
-              <AnimatePresence mode="wait">
+            <span className="relative inline-flex items-center min-h-[1em] whitespace-nowrap">
+              <AnimatePresence>
                 <motion.span
                   key={words[index]}
-                  initial={{ scale: 0, rotate: -10, opacity: 0 }}
-                  animate={{ scale: 1, rotate: 0, opacity: 1 }}
-                  exit={{ scale: 0, rotate: 10, opacity: 0 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute left-0 w-full"
+                  className="absolute top-1.5 md:top-3 left-0 inline-block"
                 >
                   {words[index]}
                 </motion.span>
@@ -87,7 +86,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="text-base md:text-2xl font-normal mt-4"
+            className="text-base md:text-2xl  md:font-normal mt-4 w-[90%]"
           >
             As a Designer with more than 3 years of dedicated experience, I
             create digital experiences that border on efficiency, aesthetics,

@@ -1,3 +1,5 @@
+import Slider from "@/components/about/slider";
+
 export default function Hero1() {
   return (
     <div className="bg-hero1 px-6  md:px-12 mt-20">
@@ -25,7 +27,9 @@ export default function Hero1() {
           </p>
         </div>
 
-        <div className="md:w-[55%] h-[200px]  md:h-auto border bg-[#16161799] border-[#CDCDCD33] rounded-2xl mt-6 md:mt-0"></div>
+        <div className="md:w-[55%] h-auto border bg-[#16161799] border-[#CDCDCD33] rounded-2xl mt-6 md:mt-0">
+          <Slider />
+        </div>
       </div>
     </div>
   );
