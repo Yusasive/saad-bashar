@@ -29,9 +29,9 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 120 }}
-      className="fixed top-0 w-full bg-[#19191933] backdrop-blur-lg z-50"
+      className=" fixed top-6 w-full  z-50"
     >
-      <div className="mx-6 lg:mx-12 py-6 flex border-b border-[#CDCDCD33] justify-between items-center">
+      <div className="mx-6 lg:mx-12 bg-[#19191933] backdrop-blur-lg pb-4 pt-1 flex border-b border-[#CDCDCD33] justify-between items-center">
         {/* Logo with hover effect */}
         <motion.div
           whileHover={{ rotate: 10 }}
@@ -49,29 +49,27 @@ export default function Navbar() {
         </motion.div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-20 text-[#CDCDCD] text-xl font-mori font-semibold">
+        <div className="hidden md:flex items-center space-x-16 text-[#CDCDCD] text-xl font-mori font-semibold">
           {["Projects", "About", "Contact"].map((item) => (
-            <motion.div
-              whileHover={{ y: -5, scale: 1.1 }}
-              key={item}
-              className="hover:text-gray-300"
-            >
+            <motion.div key={item} className="hover:text-gray-300">
               <Link href={`/${item.toLowerCase()}`}>{item}</Link>
             </motion.div>
           ))}
           <motion.a
-            whileHover={{ y: -5, scale: 1.1 }}
             href="https://www.linkedin.com/in/saadbashar/"
             target="_blank"
-            className="hover:text-gray-300"
+            className="flex flex-row items-center "
           >
-            LinkedIn
+            LinkedIn{" "}
+            <span className="ml-3">
+              <ArrowUp />
+            </span>
           </motion.a>
-          <motion.div whileHover={{ scale: 1.05 }}>
+          <motion.div>
             <Link
               target="_blank"
               href="https://cal.com/saadbashar/15min?user=saadbashar"
-              className="flex flex-row items-center border border-white px-4 py-3 rounded-lg hover:bg-white hover:text-black transition"
+              className="flex flex-row items-center border border-[#D0D0D0] hover:border-[#1E1E1E] px-4 py-3 rounded-lg transition"
             >
               Book a Call{" "}
               <span className="ml-3">
@@ -93,7 +91,7 @@ export default function Navbar() {
 
       {/* Scroll Progress Bar */}
       <motion.div
-        className="h-0.5 bg-gray-400 fixed left-6 md:left-12 mr-6 md:mr-12 transition-all duration-150 ease-out"
+        className="h-[1px] bg-[#f3f3f3] fixed -mt-[1px] left-6 md:left-12 mr-6 md:mr-12 transition-all duration-150 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 

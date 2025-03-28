@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
+"use client"; 
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
+import { useState } from "react";
+import SplashScreen from "@/components/SplashScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,26 +18,29 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Saad Bashar || UI/UX Designer",
-  description:
-    " I am a UI/UX and Product Designer, designing compelling landing pages",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isSplashFinished, setIsSplashFinished] = useState(false);
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ToastContainer position="top-right" autoClose={3000} />
-        <Navbar />
-        {children}
-        <Footer />
+        {!isSplashFinished && (
+          <SplashScreen onFinish={() => setIsSplashFinished(true)} />
+        )}
+        {isSplashFinished && (
+          <>
+            <ToastContainer position="top-right" autoClose={3000} />
+            <Navbar />
+            {children}
+            <Footer />
+          </>
+        )}
       </body>
     </html>
   );

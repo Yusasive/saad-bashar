@@ -5,7 +5,7 @@ import Step from "./Steps";
 const DesignProcess = () => {
   return (
     <div className="relative bg-[#111112] text-white py-16 px-4 md:px-8 flex flex-col">
-      <h2 className="text-3xl md:text-5xl font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#8D8D8D] text-transparent bg-clip-text text-center md:text-left">
+      <h2 className="text-3xl md:text-5xl w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#0404047c] text-transparent bg-clip-text text-center md:text-left">
         My Design Process
       </h2>
       <div className="flex flex-col items-center">

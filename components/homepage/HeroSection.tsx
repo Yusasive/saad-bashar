@@ -10,7 +10,7 @@ import S from "@/public/images/brands/S.png";
 import WT from "@/public/images/brands/WT.png";
 
 export default function HeroSection() {
-  const words = ["landing pages", "web apps", "mobile experiences", "UI kits"];
+  const words = ["landing pages", "mobile apps", "web apps", "websites"];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function HeroSection() {
           initial={{ x: -100, opacity: 0, rotate: -3 }}
           animate={{ x: 0, opacity: 1, rotate: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex flex-col md:flex-row justify-between text-[#CDCDCD] text-lg lg:text-[28px] font-normal font-mori gap-2"
+          className="flex flex-col md:flex-row justify-between text-[#CDCDCD] text-lg lg:text-[28px] font-mori gap-2"
         >
           <p className="text-center md:text-left">
             Hi, I am{" "}
@@ -86,7 +86,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="text-base md:text-2xl  md:font-normal mt-4 w-[90%]"
+            className="text-base md:text-2xl  mt-4 w-[90%]"
           >
             As a Designer with more than 3 years of dedicated experience, I
             create digital experiences that border on efficiency, aesthetics,

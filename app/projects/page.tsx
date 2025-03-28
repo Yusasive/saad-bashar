@@ -64,10 +64,6 @@ export default function ProjectOverview() {
             <Link href={`/projects/${project._id}`}>
               <motion.div
                 className="rounded-2xl border border-[#CDCDCD33] p-6 space-y-4 pt-8"
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.1)",
-                }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
                 <div className="flex flex-row items-center justify-between">
