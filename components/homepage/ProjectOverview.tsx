@@ -109,11 +109,18 @@ export default function ProjectOverview() {
               <div className="flex flex-row justify-between">
                 <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
                   {project.categories.map((cat, index) => (
-                    <span key={index}>
-                      {cat} {index < project.categories.length - 1 && "•"}
+                    <span
+                      key={index}
+                      className="inline-flex items-center space-x-1"
+                    >
+                      <span>{cat}</span>
+                      {index < project.categories.length - 1 && (
+                        <span className="text-gray-500">•</span> 
+                      )}
                     </span>
                   ))}
                 </p>
+
                 <p className="text-xl md:text-[28px] text-[#CDCDCD] font-semibold font-mori">
                   {project.year}
                 </p>
@@ -142,9 +149,9 @@ export default function ProjectOverview() {
         <Link href="/projects">
           <motion.button
             whileTap={{ scale: 0.95 }}
-            className="flex flex-row items-center text-[#F3F3F3] text-sm md:text-xl font-normal font-mori border border-[#D0D0D0] rounded-lg px-6 py-4"
+            className="flex flex-row items-center text-[#F3F3F3] text-sm md:text-xl border border-[#D0D0D0] rounded-lg px-6 py-4"
           >
-            View More{" "}
+            View More
             <motion.span initial={{ y: 0 }} className="ml-2">
               <ArrowUp />
             </motion.span>

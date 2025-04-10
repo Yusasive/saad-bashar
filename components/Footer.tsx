@@ -1,43 +1,86 @@
 "use client";
-import { motion } from "framer-motion";
+
+import { motion, useInView, useAnimation } from "framer-motion";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
-import { Behance, Email, LinkedIn, Twitter } from "@/components/SvgLogo";
+import {
+  Behance,
+  Email,
+  LinkedIn,
+  Twitter,
+  ArrowUp,
+} from "@/components/SvgLogo";
 import Nigeria from "@/public/images/projects/nigeria.png";
-import { ArrowUp } from "@/components/SvgLogo";
+import { ArrowDown } from "./ImageIcon";
 
 export default function Foooter() {
+  const footerRef = useRef(null);
+  const isInView = useInView(footerRef, { once: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
+
   return (
     <motion.div
+      ref={footerRef}
+      initial="hidden"
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.8, ease: "easeOut" },
+        },
+      }}
       className="bg-footer bg-black/35"
-      initial={{ opacity: 0, y: 50 }} // Start hidden & move up
-      animate={{ opacity: 1, y: 0 }} // Animate to visible
-      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="p-6 md:p-12 border-y border-[#CDCDCD80]">
         <motion.h1
-          className="text-[#F3F3F3] text-2xl md:text-5xl font-semibold font-mori"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-semibold font-mori"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
+          Let&apos;s Build Something
+        </motion.h1>
+        <motion.h1
+          className="bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-semibold font-mori pt-2"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Let&apos;s Build <span className="text-[#8D8D8D]">Something</span>{" "}
-          <br />
           Awesome!
         </motion.h1>
         <motion.p
-          className="text-[#CDCDCD] text-base font-normal font-mori"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="text-[#CDCDCD] text-base"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          Feel free to reach out to me via any of the following channels
+          <span className="inline-flex items-center gap-2">
+            Feel free to reach out to me via any of the following channels
+            <ArrowDown />
+          </span>
         </motion.p>
 
         {/* Buttons */}
         <motion.div
           className="flex flex-row text-sm md:text-xl text-[#F3F3F3] font-mori font-normal space-x-6 py-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <motion.button
@@ -55,7 +98,7 @@ export default function Foooter() {
             whileTap={{ scale: 0.95 }}
             className="flex flex-row items-center border border-[#CDCDCD33] rounded-full px-2 md:px-6 py-2 md:py-4"
           >
-            Email me{" "}
+            Email me
             <span className="ml-3">
               <ArrowUp />
             </span>
@@ -65,8 +108,10 @@ export default function Foooter() {
         {/* Social Icons */}
         <motion.div
           className="flex flex-row space-x-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <motion.a
@@ -96,8 +141,10 @@ export default function Foooter() {
       {/* Footer Bottom */}
       <motion.div
         className="flex p-6 md:p-12 items-center justify-left"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 },
+        }}
         transition={{ duration: 0.8, delay: 0.6 }}
       >
         <div className="flex items-center gap-2 text-[#CDCDCD80] text-sm md:text-base font-normal font-mori">

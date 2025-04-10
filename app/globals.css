@@ -43,6 +43,8 @@
   }
 }
 
+
+
 .animate-marquee-left {
   animation: marquee-left linear infinite;
 }

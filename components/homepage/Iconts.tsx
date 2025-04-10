@@ -25,6 +25,34 @@ export const FirstArrow = () => (
   </svg>
 );
 
+export const AlternativeMouse = () => (
+  <svg
+    width="34"
+    height="64"
+    viewBox="0 0 34 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clip-path="url(#clip0_352_2835)">
+      <path
+        d="M17 64C26.374 64 34 56.374 34 47L34 17C34 7.626 26.374 6.66686e-07 17 1.48619e-06C7.62599 2.30569e-06 -4.92837e-06 7.626 -4.10887e-06 17L-1.48619e-06 47C-6.66686e-07 56.374 7.626 64 17 64ZM2 17C2 8.729 8.72899 2 17 2C25.271 2 32 8.729 32 17L32 47C32 55.271 25.271 62 17 62C8.729 62 2 55.271 2 47L2 17Z"
+        fill="#CECECE"
+      />
+      <path d="M16 54L18 54L18 33L16 33L16 54Z" fill="#CECECE" />
+    </g>
+    <defs>
+      <clipPath id="clip0_352_2835">
+        <rect
+          width="34"
+          height="64"
+          fill="white"
+          transform="translate(34 64) rotate(180)"
+        />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
 export const SecondArrow = () => (
   <svg
     width="141"

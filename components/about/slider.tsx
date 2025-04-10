@@ -7,12 +7,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const images = [
-  { src: "/projects/firstImage.png", caption: "First Image" },
-  { src: "/projects/secondImage.png", caption: "Second Image" },
-  { src: "/projects/thirdImage.png", caption: "Third Image" },
-  { src: "/projects/fourthImage.png", caption: "Fourth Image" },
-  { src: "/projects/fifthImage.png", caption: "Fifth Image" },
-  { src: "/projects/sixthImage.png", caption: "Sixth Image" },
+  { src: "/projects/firstImage.svg", caption: "First Image" },
+  { src: "/projects/secondImage.svg", caption: "Second Image" },
+  { src: "/projects/thirdImage.svg", caption: "Third Image" },
+  { src: "/projects/fourthImage.svg", caption: "Fourth Image" },
+  { src: "/projects/fifthImage.svg", caption: "Fifth Image" },
+  { src: "/projects/sixthImage.svg", caption: "Sixth Image" },
 ];
 
 export default function ImageSlider() {

@@ -1,8 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useAnimation,
+  useInView,
+} from "framer-motion";
 import BC from "@/public/images/brands/BC.png";
 import BS from "@/public/images/brands/BS.png";
 import MM from "@/public/images/brands/MM.png";
@@ -13,6 +18,7 @@ export default function HeroSection() {
   const words = ["landing pages", "mobile apps", "web apps", "websites"];
   const [index, setIndex] = useState(0);
 
+  // Auto-cycling dynamic words
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % words.length);
@@ -20,6 +26,17 @@ export default function HeroSection() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Scroll animation setup for brand section
+  const brandRef = useRef(null);
+  const brandInView = useInView(brandRef, { once: true });
+  const brandControls = useAnimation();
+
+  useEffect(() => {
+    if (brandInView) {
+      brandControls.start("visible");
+    }
+  }, [brandInView, brandControls]);
 
   return (
     <motion.div
@@ -29,7 +46,7 @@ export default function HeroSection() {
       className="bg-container bg-black/35 pt-28"
     >
       <div className="mx-4 lg:mx-12 py-6">
-        {/* Animated Intro Text */}
+        {/* Intro Text */}
         <motion.div
           initial={{ x: -100, opacity: 0, rotate: -3 }}
           animate={{ x: 0, opacity: 1, rotate: 0 }}
@@ -57,6 +74,7 @@ export default function HeroSection() {
           </p>
         </motion.div>
 
+        {/* Animated Title & Description */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -64,8 +82,7 @@ export default function HeroSection() {
           className="text-[#F3F3F3]  py-8 md:py-10"
         >
           <h1 className="text-xl md:text-5xl lg:text-[58px] w-[90%] font-semibold font-mori leading-tight">
-            I am a UI/UX and Product Designer,
-            designing compelling{" "}
+            I am a UI/UX and Product Designer, designing compelling{" "}
             <span className="relative inline-flex items-center min-h-[1em] whitespace-nowrap">
               <AnimatePresence>
                 <motion.span
@@ -97,16 +114,12 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Animated Brands Section */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="space-y-5 px-6 lg:px-12 mt-10 md:mt-40"
-      >
+      {/* Scroll-Triggered Brands Section */}
+      <div className="space-y-5 px-6 lg:px-12 mt-10 md:mt-40">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-lg text-[#CDCDCD] font-semibold font-mori text-center"
         >
@@ -114,8 +127,9 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.div
+          ref={brandRef}
           initial="hidden"
-          animate="visible"
+          animate={brandControls}
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: {
@@ -147,7 +161,7 @@ export default function HeroSection() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

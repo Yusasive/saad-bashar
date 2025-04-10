@@ -91,7 +91,7 @@ export default function Navbar() {
 
       {/* Scroll Progress Bar */}
       <motion.div
-        className="h-[1px] bg-[#f3f3f3] fixed -mt-[1px] left-6 md:left-12 mr-6 md:mr-12 transition-all duration-150 ease-out"
+        className="h-[1px] bg-[#f3f3f3] fixed -mt-[1px] left-6 md:left-12 mr-6 md:mr-10 transition-all duration-150 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 

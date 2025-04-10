@@ -23,11 +23,11 @@ const Marquee: React.FC<MarqueeProps> = ({
         className={`flex w-max space-x-6 ${direction === "right" ? "animate-marquee-right" : "animate-marquee-left"}`}
         style={{ animationDuration: speedMap[speed] }}
       >
-        {[...items, ...items, ...items, ...items, ...items].map(
+        {[...items, ...items, ...items, ...items, ...items, ...items].map(
           (item, index) => (
             <div
               key={index}
-              className="flex items-center space-x-2 px-4 py-2 bg-gray-800 text-white rounded-lg"
+              className="flex items-center text-2xl font-normal space-x-2 px-4 py-3 border border-[#CDCDCD33] text-[#CDCDCD] rounded-lg"
             >
               {item.icon}
               <span>{item.text}</span>

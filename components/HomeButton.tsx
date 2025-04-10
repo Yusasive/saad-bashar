@@ -1,17 +1,33 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { AlternativeMouse } from "./homepage/Iconts";
 
-export default function StickyButton() {
+type StickyButtonProps = {
+  onNavigate: (section: string) => void;
+};
+
+export default function StickyButton({ onNavigate }: StickyButtonProps) {
   const pathname = usePathname();
+  const sections = ["hero", "project", "design", "prefooter"];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   if (pathname !== "/") return null;
 
+  const handleClick = () => {
+    const section = sections[currentIndex];
+    onNavigate(section);
+    setCurrentIndex((prev) => (prev + 1) % sections.length);
+  };
+
   return (
-    <a href="https://cal.com/saadbashar/15min?user=saadbashar" target="_blank">
-      {" "}
-      <button className="fixed bottom-32 right-6 md:right-12 bg-[#1E1E1E] hover:bg-[#404040] text-[#F3F3F3] text-base font-semibold px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2 transition-all">
-        <span>View Resume</span>
-      </button>
-    </a>
+    <button
+      onClick={handleClick}
+      className="fixed z-10 bottom-60 left-6 md:left-12 text-[#F3F3F3] text-base font-semibold rounded-lg shadow-lg flex transition-all"
+    >
+      <span>
+        <AlternativeMouse />
+      </span>
+    </button>
   );
 }

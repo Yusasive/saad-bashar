@@ -1,13 +1,47 @@
-import React from "react";
+
+"use client";
+
+import React, { useRef, useEffect } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 import { FirstArrow, SecondArrow, ThirdArrow, FourthArrow } from "./Iconts";
 import Step from "./Steps";
 
 const DesignProcess = () => {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
+
   return (
-    <div className="relative bg-[#111112] text-white py-16 px-4 md:px-8 flex flex-col">
-      <h2 className="text-3xl md:text-5xl w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#0404047c] text-transparent bg-clip-text text-center md:text-left">
+    <motion.div
+      ref={containerRef}
+      initial="hidden"
+      animate={controls}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: { staggerChildren: 0.3 },
+        },
+      }}
+      className="relative bg-[#111112] text-white py-16 px-6 md:px-12 flex flex-col"
+    >
+      {/* Section Heading */}
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.8 }}
+        className="text-3xl md:text-5xl w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-center md:text-left"
+      >
         My Design Process
-      </h2>
+      </motion.h2>
+
       <div className="flex flex-col items-center">
         <svg
           className="w-full max-w-[500px] md:max-w-[888px] h-auto"
@@ -59,60 +93,92 @@ const DesignProcess = () => {
             </linearGradient>
           </defs>
         </svg>
-        {/* Steps with text inside the curve */}
-        <Step
-          title="Research"
-          description={
-            <>
-              Discovery Mode Activated! Uncovering user insights, <br />
-              industry trends, and creative opportunities.
-            </>
-          }
-          icon={<FirstArrow />}
-          position="top-[20%] left-[44%] flex-row md:top-[12%] md:left-[47%] flex-row"
-          textPosition="top-[31%] left-1/2 -translate-x-1/2 md:top-[30%] md:left-1/2"
-        />
+        {/* Steps */}
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8 }}
+        >
+          <Step
+            title="Research"
+            description={
+              <>
+                Discovery Mode Activated! Uncovering user insights, <br />
+                industry trends, and creative opportunities.
+              </>
+            }
+            icon={<FirstArrow />}
+            position="top-[20%] left-[44%] flex-row md:top-[12%] md:left-[47%] flex-row"
+            textPosition="top-[31%] ml-[5%] -translate-x-1/2 md:top-[30%] left-1/2"
+          />
+        </motion.div>
 
-        <Step
-          title="Define"
-          description={
-            <>
-              The Blueprint Begins! Outlining objectives, identifying <br />
-              challenges, and establishing the foundation.
-            </>
-          }
-          icon={<SecondArrow />}
-          position="top-[49%] left-[81%] md:top-[45%] md:left-[71%] flex-row"
-          textPosition="top-[46%] left-[40%] -translate-x-1/2 md:top-[47%] md:left-1/2"
-        />
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <Step
+            title="Define"
+            description={
+              <>
+                The Blueprint Begins! Outlining objectives, identifying <br />
+                challenges, and establishing the foundation.
+              </>
+            }
+            icon={<SecondArrow />}
+            position="top-[49%] left-[81%] md:top-[45%] md:left-[71%] flex-row"
+            textPosition="top-[46%] ml-[5%] -translate-x-1/2 md:top-[47%] left-1/2"
+          />
+        </motion.div>
 
-        <Step
-          title="Design"
-          description={
-            <>
-              Bringing Ideas to Life! Designing, prototyping, and <br />
-              testing solutions to meet user needs.
-            </>
-          }
-          icon={<ThirdArrow />}
-          position="top-[58%] left-0 md:top-[64%] md:left-[4%] flex-col-reverse  md:flex-row-reverse"
-          textPosition="top-[62%] left-1/2 -translate-x-1/2 md:top-[66%] md:left-[52%]"
-        />
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <Step
+            title="Design"
+            description={
+              <>
+                Bringing Ideas to Life! Designing, prototyping, and <br />
+                testing solutions to meet user needs.
+              </>
+            }
+            icon={<ThirdArrow />}
+            position="top-[58%] left-0 md:top-[64%] md:left-[4%] flex-col-reverse md:flex-row-reverse"
+            textPosition="top-[62%] ml-[5%] -translate-x-1/2 md:top-[66%] left-[52%]"
+          />
+        </motion.div>
 
-        <Step
-          title="Reiterate"
-          description={
-            <>
-              Polishing the Gem! Iterating on user feedback, refining <br />
-              the design, and ensuring a seamless experience.
-            </>
-          }
-          icon={<FourthArrow />}
-          position="top-[75%] left-[81%] md:top-[80%] md:left-[71%] flex-col-reverse  md:flex-row"
-          textPosition="top-[76%] left-[40%] -translate-x-1/2 md:top-[82%] md:left-1/2"
-        />
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <Step
+            title="Reiterate"
+            description={
+              <>
+                Polishing the Gem! Iterating on user feedback, refining <br />
+                the design, and ensuring a seamless experience.
+              </>
+            }
+            icon={<FourthArrow />}
+            position="top-[75%] left-[81%] md:top-[80%] md:left-[71%] flex-col-reverse md:flex-row"
+            textPosition="top-[76%] ml-[5%] -translate-x-1/2 md:top-[82%] left-1/2"
+          />
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

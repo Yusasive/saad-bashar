@@ -29,9 +29,9 @@ const Step: React.FC<StepProps> = ({
 
       {/* Step Description */}
       <div
-        className={`absolute ${textPosition} text-center w-[80%] md:w-[60%]`}
+        className={`absolute ${textPosition} text-left w-[80%] md:w-[60%]`}
       >
-        <p className="text-[#CDCDCD] text-sm md:text-2xl leading-snug md:leading-normal">
+        <p className="text-[#CDCDCD] text-sm  md:text-2xl leading-snug md:leading-normal">
           {description}
         </p>
       </div>
