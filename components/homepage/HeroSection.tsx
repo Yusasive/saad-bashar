@@ -98,7 +98,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
           <h1 className="text-xl md:text-5xl lg:text-[58px] w-[90%] font-semibold font-mori leading-tight">
             I am a UI/UX and Product Designer, designing compelling{" "}
             {/* Using relative parent and min-height for better word alignment */}
-            <span className="relative inline-block align-bottom min-h-[1.2em] min-w-[150px] md:min-w-[250px]">
+            <span className="relative inline-block align-bottom min-h-[1em] min-w-[150px] md:min-w-[250px]">
               <AnimatePresence mode="wait"> {/* Use mode="wait" for cleaner transition */}
                 <motion.span
                   key={words[index]}
@@ -136,7 +136,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
 
       {/* Scroll-Triggered Brands Section */}
       {/* Added pb-10 or pb-16 for bottom spacing */}
-      <div className="space-y-5 px-6 lg:px-12 my-10 mb-10 pb-10 md:pb-16">
+      <div className="space-y-5 px-6 lg:px-12 pb-10 md:pb-16">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -176,7 +176,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
                 src={img}
                 alt={`Brand logo ${i + 1}`} // More descriptive alt text
                 width={150} // Consider adjusting if needed based on design
-                height={50} // Consider adjusting if needed based on design
+                height={60} // Consider adjusting if needed based on design
                 style={{ objectFit: 'contain' }} // Ensure aspect ratio is maintained
                 className="max-w-[120px] md:max-w-[150px] lg:max-w-[180px]" // Adjusted max-widths and added h-auto
               />

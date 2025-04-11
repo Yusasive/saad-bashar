@@ -42,7 +42,7 @@ export default function ProjectOverview() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="p-6 md:p-12 pt-16 md:pt-40 bg-[#0F0F0F]"
+      className="p-6 pt-2 bg-[#0F0F0F]"
     >
       <motion.h1
         initial={{ y: -20, opacity: 0 }}
@@ -100,7 +100,7 @@ export default function ProjectOverview() {
               <Link 
               href={`/projects/${project._id}`}
               >
-                <div className="flex flex-row justify-between">
+                <div className="flex flex-row justify-between mb-4">
                   <p className="text-2xl md:text-4xl text-[#F3F3F3]">
                     {project.title}
                   </p>
@@ -109,7 +109,7 @@ export default function ProjectOverview() {
                   </motion.div>
                 </div>
 
-                <div className="flex flex-row justify-between">
+                <div className="flex flex-row justify-between mb-4">
                   <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
                     {project.categories.map((cat, index) => (
                       <span

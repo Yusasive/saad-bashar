@@ -101,7 +101,7 @@ export default function ProjectOverview() {
                   </motion.div>
                 </div>
                 <div className="flex flex-row justify-between">
-                  <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori">
+                  <p className="text-lg md:text-[24px] text-[#CDCDCD] font-semibold font-mori">
                     {project.categories.join(" • ")}
                   </p>
                   <p className="text-lg md:text-[28px] text-[#CDCDCD] font-semibold font-mori">
@@ -131,7 +131,7 @@ export default function ProjectOverview() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <p className="text-[#F3F3F3] text-base md:text-2xl font-normal w-[75%]">
+              <p className="text-[#F3F3F3] text-base md:text-[28px] font-normal w-[75%]">
                 {project.description}
               </p>
             </motion.div>
