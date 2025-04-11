@@ -378,7 +378,6 @@ export default function Home() {
       {/* See Also section */}
       <div>
         <h1 className="text-3xl text-[#F3F3F3] font-normal">See also</h1>
-
         {projects.map((project) => (
           <div key={project._id}>
             <Link href={`/projects/${project._id}`} className="block">

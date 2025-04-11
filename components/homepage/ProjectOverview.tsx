@@ -42,13 +42,13 @@ export default function ProjectOverview() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="p-6 md:p-12 pt-16 md:pt-20 bg-[#0F0F0F]"
+      className="p-6 md:p-12 pt-16 md:pt-40 bg-[#0F0F0F]"
     >
       <motion.h1
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-[#F3F3F3] text-3xl md:text-5xl font-semibold font-mori pb-6"
+        className="text-[#F3F3F3] text-3xl md:text-5xl font-semibold font-mori pt-16 md:pt-10 pb-4"
       >
         Projects
       </motion.h1>
@@ -97,44 +97,48 @@ export default function ProjectOverview() {
               transition={{ ease: "easeOut", duration: 0.5 }}
               className="rounded-2xl border border-[#CDCDCD33] p-6 space-y-4 pt-8"
             >
-              <div className="flex flex-row justify-between">
-                <p className="text-2xl md:text-4xl text-[#F3F3F3]">
-                  {project.title}
-                </p>
-                <motion.div initial={{ rotate: 0 }}>
-                  <Image src={Arrow} alt="Arrow" width={23} height={23} />
+              <Link 
+              href={`/projects/${project._id}`}
+              >
+                <div className="flex flex-row justify-between">
+                  <p className="text-2xl md:text-4xl text-[#F3F3F3]">
+                    {project.title}
+                  </p>
+                  <motion.div initial={{ rotate: 0 }}>
+                    <Image src={Arrow} alt="Arrow" width={23} height={23} />
+                  </motion.div>
+                </div>
+
+                <div className="flex flex-row justify-between">
+                  <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
+                    {project.categories.map((cat, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center space-x-1"
+                      >
+                        <span>{cat}</span>
+                        {index < project.categories.length - 1 && (
+                          <span className="text-[#CDCDCD73]">•</span>
+                        )}
+                      </span>
+                    ))}
+                  </p>
+
+                  <p className="text-xl md:text-[28px] text-[#CDCDCD] font-semibold font-mori">
+                    {project.year}
+                  </p>
+                </div>
+
+                <motion.div transition={{ duration: 0.3 }}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={1366}
+                    height={713}
+                    className="rounded-lg w-full"
+                  />
                 </motion.div>
-              </div>
-
-              <div className="flex flex-row justify-between">
-                <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
-                  {project.categories.map((cat, index) => (
-                    <span
-                      key={index}
-                      className="inline-flex items-center space-x-1"
-                    >
-                      <span>{cat}</span>
-                      {index < project.categories.length - 1 && (
-                        <span className="text-[#CDCDCD73]">•</span>
-                      )}
-                    </span>
-                  ))}
-                </p>
-
-                <p className="text-xl md:text-[28px] text-[#CDCDCD] font-semibold font-mori">
-                  {project.year}
-                </p>
-              </div>
-
-              <motion.div transition={{ duration: 0.3 }}>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={1366}
-                  height={713}
-                  className="rounded-lg w-full"
-                />
-              </motion.div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
