@@ -1,3 +1,4 @@
+import './homepage.css'
 export const FirstArrow = () => (
   <svg
     width="142"
@@ -53,7 +54,7 @@ export const AlternativeMouse = () => (
         d="M17 64C26.374 64 34 56.374 34 47L34 17C34 7.626 26.374 6.66686e-07 17 1.48619e-06C7.62599 2.30569e-06 -4.92837e-06 7.626 -4.10887e-06 17L-1.48619e-06 47C-6.66686e-07 56.374 7.626 64 17 64ZM2 17C2 8.729 8.72899 2 17 2C25.271 2 32 8.729 32 17L32 47C32 55.271 25.271 62 17 62C8.729 62 2 55.271 2 47L2 17Z"
         fill="#CECECE"
       />
-      <path d="M16 54L18 54L18 33L16 33L16 54Z" fill="#CECECE" />
+      <path d="M16 54L18 54L18 33L16 33L16 54Z" fill="#CECECE" className="scrollLine"/>
     </g>
     <defs>
       <clipPath id="clip0_352_2835">
