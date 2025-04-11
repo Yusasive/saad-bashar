@@ -34,7 +34,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []); // Removed words from dependency array as it's constant
+  }, [words.length]); // Removed words from dependency array as it's constant
 
   // Scroll animation setup for brand section
   const brandRef = useRef(null);

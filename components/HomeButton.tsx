@@ -1,6 +1,5 @@
 "use client";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+
 import { AlternativeMouse } from "./homepage/Iconts";
 
 type StickyButtonProps = {
