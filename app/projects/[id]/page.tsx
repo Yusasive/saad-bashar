@@ -1,20 +1,58 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Clock, Building, Tags, Mouse } from "@/components/SvgLogo";
-import projectData from "@/public/data/product.json";
 import { BackArrow } from "@/components/homepage/Iconts";
+
+interface Project {
+  _id: string;
+  title: string;
+  subTitle: string;
+  year: number;
+  image: string;
+  companyLogo: string;
+  website: string;
+  buttonWord: string;
+  overview: string;
+  users: string;
+  timeline: string;
+  role: string;
+  collaborators: string;
+  categories: string[];
+}
 
 export default function ProjectDetails() {
   const { id } = useParams();
   const router = useRouter();
 
-  const project = projectData.find((proj) => proj._id === id);
+  const [project, setProject] = useState<Project | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  if (!project)
+  useEffect(() => {
+    const fetchProject = async () => {
+      try {
+        const res = await fetch("/data/product.json");
+        if (!res.ok) throw new Error("Failed to load project");
+        const data: Project[] = await res.json();
+        const found = data.find((proj) => proj._id === id);
+        setProject(found ?? null);
+      } catch (err) {
+        setError((err as Error).message);
+      }
+    };
+
+    fetchProject();
+  }, [id]);
+
+  if (error) {
+    return <p className="text-red-500 text-center py-20">Error: {error}</p>;
+  }
+
+  if (!project) {
     return (
       <motion.p
         className="text-white text-center py-52"
@@ -25,6 +63,7 @@ export default function ProjectDetails() {
         Project not found.
       </motion.p>
     );
+  }
 
   const handleMouseClick = () => {
     router.push(`/projects/${project._id}/overview/${project.overview}`);

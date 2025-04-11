@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUp } from "@/components/SvgLogo";
 import Link from "next/link";
-import projectData from "@/public/data/product.json";
 
 interface Project {
   _id: string;
@@ -17,7 +16,34 @@ interface Project {
 }
 
 export default function ProjectOverview() {
-  const [projects] = useState<Project[]>(projectData);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch("/data/product.json");
+        if (!res.ok) throw new Error("Failed to load projects");
+        const data: Project[] = await res.json();
+        setProjects(data.slice(0, 3)); 
+      } catch (err) {
+        setError((err as Error).message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (loading) {
+    return <p className="text-white">Loading...</p>;
+  }
+
+  if (error) {
+    return <p className="text-red-500">Error: {error}</p>;
+  }
 
   return (
     <motion.div
