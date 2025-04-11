@@ -72,14 +72,14 @@ export default function ProjectDetails() {
   return (
     <>
       <motion.div
-        className="py-8 bg-[#111112] mt-20 px-6 md:px-12"
+        className="py-8 bg-[#111112] px-6 md:px-12"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <Link
           href="/projects"
-          className="flex flex-row items-center text-center text-2xl text-[#F3F3F3] font-normal font-mori"
+          className="flex flex-row items-center text-center text-2xl text-[#F3F3F3] font-normal font-mori mt-20"
         >
           <BackArrow /> <span className="ml-6">Back to Projects</span>
         </Link>
@@ -201,14 +201,14 @@ export default function ProjectDetails() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <motion.button
+        {/* <motion.button
           onClick={handleMouseClick}
           className="cursor-pointer"
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           <Mouse />
-        </motion.button>
+        </motion.button> */}
       </motion.div>
     </>
   );

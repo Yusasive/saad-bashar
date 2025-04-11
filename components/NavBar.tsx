@@ -29,7 +29,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 120 }}
-      className=" fixed top-6 w-full  z-50"
+      className=" fixed top-6 w-full z-50"
     >
       <div className="mx-6 lg:mx-12 bg-[#19191933] backdrop-blur-lg pb-4 pt-1 flex border-b border-[#CDCDCD33] justify-between items-center">
         {/* Logo with hover effect */}

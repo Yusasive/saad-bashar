@@ -47,13 +47,13 @@ export default function ProjectOverview() {
 
   return (
     <motion.div
-      className="p-6 md:p-12 bg-[#0F0F0F] mt-24"
+      className="p-6 md:p-12 bg-[#0F0F0F]"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.h1
-        className="text-[#F3F3F3] text-3xl md:text-5xl font-semibold font-mori py-2 md:py-6"
+        className="text-[#F3F3F3] text-3xl md:text-5xl font-semibold font-mori py-2 mt-20 md:py-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
