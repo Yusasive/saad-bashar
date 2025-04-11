@@ -31,7 +31,7 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
         }
         return nextIndex;
       });
-    }, 500);
+    }, 150);
 
     return () => clearInterval(interval);
   }, [onFinish]);
