@@ -29,9 +29,9 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 120 }}
-      className=" fixed top-6 w-full z-50"
+      className="fixed top-6 w-full z-50"
     >
-      <div className="mx-6 lg:mx-12 bg-[#19191933] backdrop-blur-lg pb-4 pt-1 flex border-b border-[#CDCDCD33] justify-between items-center">
+      <div className={`mx-6 lg:mx-12 bg-[#0F0F0F] backdrop-blur-lg pb-4 pt-1 flex justify-between items-center ${isOpen ? 'border-t border-x border-[#CDCDCD33] rounded-2xl p-4 pt-4' : 'border-b border-[#CDCDCD33]'}`}>
         {/* Logo with hover effect */}
         <motion.div
           whileHover={{ rotate: 10 }}
@@ -49,7 +49,7 @@ export default function Navbar() {
         </motion.div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-16 text-[#CDCDCD] text-xl font-mori font-semibold">
+        <div className="hidden md:flex items-center space-x-10 lg:space-x-16 text-[#CDCDCD] text-xl font-mori font-semibold">
           {["Projects", "About", "Contact"].map((item) => (
             <motion.div key={item} className="hover:text-gray-300">
               <Link href={`/${item.toLowerCase()}`}>{item}</Link>
@@ -103,7 +103,7 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-full left-0 w-full bg-black bg-opacity-80 py-6 flex flex-col items-center space-y-4 text-[#CDCDCD] text-xl font-mori font-semibold"
+            className="fixed top-20 left-0 right-0 bg-[#0F0F0F] border-x border-b border-[#CDCDCD33] py-6 flex flex-col items-center space-y-10 text-[#CDCDCD] text-xl font-mori font-semibold rounded-b-2xl mx-6"
           >
             {["Projects", "About", "Contact"].map((item) => (
               <Link
@@ -115,6 +115,28 @@ export default function Navbar() {
                 {item}
               </Link>
             ))}
+            <motion.a
+              href="https://www.linkedin.com/in/saadbashar/"
+              target="_blank"
+              className="flex flex-row items-center "
+            >
+              LinkedIn{" "}
+              <span className="ml-3">
+                <ArrowUp />
+              </span>
+            </motion.a>
+            <motion.div>
+              <Link
+                target="_blank"
+                href="https://cal.com/saadbashar/15min?user=saadbashar"
+                className="flex flex-row items-center border border-[#D0D0D0] hover:border-[#1E1E1E] px-4 py-3 rounded-lg transition"
+              >
+                Book a Call{" "}
+                <span className="ml-3">
+                  <ArrowUp />
+                </span>
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
