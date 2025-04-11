@@ -165,20 +165,20 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
             <motion.div
               key={i} // Use index 'i' from map
               variants={{
-                hidden: { opacity: 0, y: 10, scale: 0.8 },
-                visible: { opacity: 1, y: 0, scale: 1 },
+                hidden: { opacity: 0, y: 10, scale: 1.8 },
+                visible: { opacity: 1, y: 0, scale: .95 },
               }}
-              whileHover={{ scale: 1.1, rotate: 3 }}
+              whileHover={{ rotate: 3 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="flex justify-center" // Ensures image is centered if grid cell is larger
+              className="flex justify-center gap-6" // Ensures image is centered if grid cell is larger
             >
               <Image
                 src={img}
                 alt={`Brand logo ${i + 1}`} // More descriptive alt text
-                width={150} // Consider adjusting if needed based on design
-                height={60} // Consider adjusting if needed based on design
-                style={{ objectFit: 'contain' }} // Ensure aspect ratio is maintained
-                className="max-w-[120px] md:max-w-[150px] lg:max-w-[180px]" // Adjusted max-widths and added h-auto
+                width={270} // Consider adjusting if needed based on design
+                height={98} // Consider adjusting if needed based on design
+                style={{ objectFit: 'cover' }} // Ensure aspect ratio is maintained
+                // className="max-w-[120px] md:max-w-[150px] lg:max-w-[270px]" // Adjusted max-widths and added h-auto
               />
             </motion.div>
           ))}
