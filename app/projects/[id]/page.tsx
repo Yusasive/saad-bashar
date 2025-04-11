@@ -201,14 +201,14 @@ export default function ProjectDetails() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        {/* <motion.button
+        <motion.button
           onClick={handleMouseClick}
           className="cursor-pointer"
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           <Mouse />
-        </motion.button> */}
+        </motion.button>
       </motion.div>
     </>
   );
