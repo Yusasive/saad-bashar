@@ -21,13 +21,13 @@ export default function ProjectOverview() {
 
   return (
     <motion.div
-      className="p-6 md:p-12 bg-[#0F0F0F] mt-20"
+      className="p-6 md:p-12 bg-[#0F0F0F] mt-24"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.h1
-        className="text-[#F3F3F3] text-3xl md:text-5xl font-semibold font-mori pb-2 md:pb-6"
+        className="text-[#F3F3F3] text-3xl md:text-5xl font-semibold font-mori py-2 md:py-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -93,6 +93,7 @@ export default function ProjectOverview() {
                     width={1366}
                     height={713}
                     priority
+                    className="w-full"
                   />
                 </motion.div>
               </motion.div>
@@ -104,7 +105,7 @@ export default function ProjectOverview() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <p className="text-[#F3F3F3] text-base md:text-2xl font-normal">
+              <p className="text-[#F3F3F3] text-base md:text-2xl font-normal w-[75%]">
                 {project.description}
               </p>
             </motion.div>

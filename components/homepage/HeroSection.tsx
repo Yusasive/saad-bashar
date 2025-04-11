@@ -51,7 +51,7 @@ export default function HeroSection() {
           initial={{ x: -100, opacity: 0, rotate: -3 }}
           animate={{ x: 0, opacity: 1, rotate: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex flex-col md:flex-row justify-between text-[#CDCDCD] text-lg lg:text-[28px] font-mori gap-2"
+          className="flex flex-col md:flex-row justify-between text-[#CDCDCD] text-lg lg:text-[28px] gap-2"
         >
           <p className="text-center md:text-left">
             Hi, I am{" "}

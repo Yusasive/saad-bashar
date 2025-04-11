@@ -15,7 +15,6 @@ const Step: React.FC<StepProps> = ({
 }) => {
   return (
     <>
-      {/* Step Icon & Title */}
       <div
         className={`absolute ${position} flex  items-center `}
       >
@@ -27,7 +26,6 @@ const Step: React.FC<StepProps> = ({
         </h3>
       </div>
 
-      {/* Step Description */}
       <div
         className={`absolute ${textPosition} text-left w-[80%] md:w-[60%]`}
       >

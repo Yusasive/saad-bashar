@@ -115,7 +115,7 @@ export default function ProjectOverview() {
                     >
                       <span>{cat}</span>
                       {index < project.categories.length - 1 && (
-                        <span className="text-gray-500">•</span> 
+                        <span className="text-[#CDCDCD73]">•</span>
                       )}
                     </span>
                   ))}
@@ -132,7 +132,7 @@ export default function ProjectOverview() {
                   alt={project.title}
                   width={1366}
                   height={713}
-                  className="rounded-lg"
+                  className="rounded-lg w-full"
                 />
               </motion.div>
             </motion.div>

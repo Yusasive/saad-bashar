@@ -37,7 +37,7 @@ export default function Foooter() {
           transition: { duration: 0.8, ease: "easeOut" },
         },
       }}
-      className="bg-footer bg-black/35"
+      className="bg-footer bg-black/35 pt-8"
     >
       <div className="p-6 md:p-12 border-y border-[#CDCDCD80]">
         <motion.h1
@@ -140,7 +140,7 @@ export default function Foooter() {
 
       {/* Footer Bottom */}
       <motion.div
-        className="flex p-6 md:p-12 items-center justify-left"
+        className="flex py-5 px-6 md:px-12 items-center justify-left"
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },

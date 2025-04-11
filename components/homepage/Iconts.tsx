@@ -25,6 +25,21 @@ export const FirstArrow = () => (
   </svg>
 );
 
+export const BackArrow = () => (
+  <svg
+    width="21"
+    height="17"
+    viewBox="0 0 21 17"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5.11408 7.20833L9.73824 2.57125L7.91699 0.75L0.166992 8.5L7.91699 16.25L9.73824 14.4288L5.11408 9.79167H20.8337V7.20833H5.11408Z"
+      fill="#F3F3F3"
+    />
+  </svg>
+);
+
 export const AlternativeMouse = () => (
   <svg
     width="34"

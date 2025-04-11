@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Clock, Building, Tags, Mouse } from "@/components/SvgLogo";
 import projectData from "@/public/data/product.json";
-
+import { BackArrow } from "@/components/homepage/Iconts";
 
 export default function ProjectDetails() {
   const { id } = useParams();
@@ -40,9 +40,9 @@ export default function ProjectDetails() {
       >
         <Link
           href="/projects"
-          className="text-2xl text-[#F3F3F3] font-normal font-mori"
+          className="flex flex-row items-center text-center text-2xl text-[#F3F3F3] font-normal font-mori"
         >
-          ⇽ Back to Projects
+          <BackArrow /> <span className="ml-6">Back to Projects</span>
         </Link>
       </motion.div>
 
