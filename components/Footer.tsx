@@ -39,9 +39,9 @@ export default function Foooter() {
       }}
       className="bg-footer bg-black/35 pt-8"
     >
-      <div className="p-6 md:p-12 border-y border-[#CDCDCD80]">
+      <div className="p-6 md:p-12">
         <motion.h1
-          className="bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-semibold font-mori"
+          className="border-t pt-8 border-[#CDCDCD80] bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-semibold font-mori"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 },
@@ -70,13 +70,13 @@ export default function Foooter() {
         >
           <span className="inline-flex items-center gap-2">
             Feel free to reach out to me via any of the following channels
-            <ArrowDown />
+            <span className="hidden sm:block"><ArrowDown /></span>
           </span>
         </motion.p>
 
         {/* Buttons */}
         <motion.div
-          className="flex flex-row text-sm md:text-xl text-[#F3F3F3] font-mori font-normal space-x-6 py-10"
+          className="flex items-start sm:items-center flex-col sm:flex-row text-sm md:text-xl text-[#F3F3F3] font-mori font-normal gap-4 sm:gap-6 py-10"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 },
@@ -86,7 +86,7 @@ export default function Foooter() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex flex-row items-center bg-[#1E1E1E] rounded-full px-2 md:px-6 py-2 md:py-4"
+            className="w-[165px] md:w-[220px] flex justify-center flex-row items-center bg-[#1E1E1E] rounded-full px-2 md:px-6 py-4 md:py-4"
           >
             Book a 1:1 Call{" "}
             <span className="ml-3">
@@ -96,7 +96,7 @@ export default function Foooter() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex flex-row items-center border border-[#CDCDCD33] rounded-full px-2 md:px-6 py-2 md:py-4"
+            className="w-[135px] md:w-[175px] flex flex-row justify-center items-center border border-[#CDCDCD33] rounded-full px-2 md:px-6 py-4 md:py-4"
           >
             Email me
             <span className="ml-3">
@@ -147,7 +147,7 @@ export default function Foooter() {
         }}
         transition={{ duration: 0.8, delay: 0.6 }}
       >
-        <div className="flex items-center gap-2 text-[#CDCDCD80] text-sm md:text-base font-normal font-mori">
+        <div className="border-t pt-8 border-[#CDCDCD80] w-full flex items-center gap-2 text-[#CDCDCD80] text-sm md:text-base font-normal font-mori">
           <span>CRAFTED WITH LOVE IN LAGOS</span>
           <Image
             src={Nigeria}

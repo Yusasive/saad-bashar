@@ -131,7 +131,7 @@ const DesignProcess = () => {
               </>
             }
             icon={<SecondArrow />}
-            position="top-[49%] left-[81%] md:top-[45%] md:left-[71%] flex-row"
+            position="top-[49%] left-[80%] sm:left-[75%] md:left-[80%] lg:left-[81%] md:top-[45%] xl:left-[73%] flex-row"
             textPosition="top-[46%] ml-[5%] -translate-x-1/2 md:top-[47%] left-1/2"
           />
         </motion.div>
@@ -152,7 +152,7 @@ const DesignProcess = () => {
               </>
             }
             icon={<ThirdArrow />}
-            position="top-[58%] left-0 md:top-[64%] md:left-[4%] flex-col-reverse md:flex-row-reverse"
+            position="top-[58%] left-0 md:top-[61%] md:left-[0%] lg:left-[5%] xl:left-[10%] flex flex-col md:flex-col 2xl:flex-row-reverse"
             textPosition="top-[62%] ml-[5%] -translate-x-1/2 md:top-[66%] left-[52%]"
           />
         </motion.div>
@@ -173,7 +173,7 @@ const DesignProcess = () => {
               </>
             }
             icon={<FourthArrow />}
-            position="top-[75%] left-[81%] md:top-[80%] md:left-[71%] flex-col-reverse md:flex-row"
+            position="top-[78%] sm:top-[75%] md:top-[80%] left-[80%] sm:left-[75%] md:left-[80%] lg:left-[81%] xl:left-[73%] flex-row"
             textPosition="top-[76%] ml-[5%] -translate-x-1/2 md:top-[82%] left-1/2"
           />
         </motion.div>
