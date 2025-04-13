@@ -41,7 +41,7 @@ export default function Foooter() {
     >
       <div className="p-6 md:p-12">
         <motion.h1
-          className="border-t pt-8 border-[#CDCDCD80] bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-semibold font-mori"
+          className="border-t pt-8 border-[#CDCDCD80] w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-mori"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 },
@@ -51,7 +51,7 @@ export default function Foooter() {
           Let&apos;s Build Something
         </motion.h1>
         <motion.h1
-          className="bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-semibold font-mori pt-2"
+          className="w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-mori pt-2"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 },
@@ -84,8 +84,8 @@ export default function Foooter() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            // whileHover={{ scale: 1.05 }}
+            // whileTap={{ scale: 0.95 }}
             className="w-[165px] md:w-[220px] flex justify-center flex-row items-center bg-[#1E1E1E] rounded-full px-2 md:px-6 py-4 md:py-4"
           >
             Book a 1:1 Call{" "}
@@ -94,8 +94,8 @@ export default function Foooter() {
             </span>
           </motion.button>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            // whileHover={{ scale: 1.05 }}
+            // whileTap={{ scale: 0.95 }}
             className="w-[135px] md:w-[175px] flex flex-row justify-center items-center border border-[#CDCDCD33] rounded-full px-2 md:px-6 py-4 md:py-4"
           >
             Email me

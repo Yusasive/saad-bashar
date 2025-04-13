@@ -31,7 +31,7 @@ export default function Navbar() {
       transition={{ type: "spring", stiffness: 120 }}
       className="fixed top-6 w-full z-50"
     >
-      <div className={`mx-6 lg:mx-12 bg-[#0F0F0F] backdrop-blur-lg pb-4 pt-1 flex justify-between items-center ${isOpen ? 'border-t border-x border-[#CDCDCD33] rounded-2xl p-4 pt-4' : 'border-b border-[#CDCDCD33]'}`}>
+      <div className={`mx-6 lg:mx-12 backdrop-blur-lg pb-4 pt-1 flex justify-between items-center ${isOpen ? 'bg-[#0F0F0F] border-t border-x border-[#CDCDCD33] rounded-2xl p-4 pt-4' : 'border-b border-[#CDCDCD33]'}`}>
         {/* Logo with hover effect */}
         <motion.div
           whileHover={{ rotate: 10 }}
@@ -69,7 +69,7 @@ export default function Navbar() {
             <Link
               target="_blank"
               href="https://cal.com/saadbashar/15min?user=saadbashar"
-              className="flex flex-row items-center border border-[#D0D0D0] hover:border-[#1E1E1E] px-4 py-3 rounded-lg transition"
+              className="flex flex-row items-center border border-[#D0D0D0] hover:border-transparent hover:bg-[#161616] px-4 py-3 rounded-lg transition-all duration-500 ease-in-out"
             >
               Book a Call{" "}
               <span className="ml-3">
@@ -129,7 +129,7 @@ export default function Navbar() {
               <Link
                 target="_blank"
                 href="https://cal.com/saadbashar/15min?user=saadbashar"
-                className="flex flex-row items-center border border-[#D0D0D0] hover:border-[#1E1E1E] px-4 py-3 rounded-lg transition"
+                className="flex flex-row items-center border border-[#D0D0D0] hover:border-transparent hover:bg-[#161616] px-4 py-3 rounded-lg transition"
               >
                 Book a Call{" "}
                 <span className="ml-3">

@@ -168,7 +168,7 @@ export default function ProjectOverview() {
         <Link href="/projects">
           <motion.button
             whileTap={{ scale: 0.95 }}
-            className="flex flex-row items-center text-[#F3F3F3] text-sm md:text-xl border border-[#D0D0D0] rounded-lg px-6 py-4"
+            className="flex flex-row items-center text-[#F3F3F3] text-sm md:text-xl border border-[#D0D0D0] hover:border-transparent hover:bg-[#161616] rounded-lg px-6 py-4 transition-all duration-500 ease-in-out"
           >
             View More
             <motion.span initial={{ y: 0 }} className="ml-2">
