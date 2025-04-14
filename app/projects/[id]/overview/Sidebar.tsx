@@ -30,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sections }) => {
   }, [sections]);
 
   return (
-    <aside className=" w-64 h-fit rounded-xl bg-[#111112] fixed py-32 z-10 ">
+    <aside className="w-64 h- bg-[#111112] absolute top-0 left-0 py-32 z-50">
       <nav className="space-y-10 p-4">
         <h1 className="text-xl font-semibold text-[#F3F3F3] pl-2">Overview</h1>
         <ul className="space-y-5">

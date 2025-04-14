@@ -91,6 +91,6 @@ body {
   width: 100%;
 }
 
-.hovereffect{
-  
+body{
+  scroll-behavior: smooth;
 }

@@ -28,7 +28,7 @@ const DesignProcess = () => {
           transition: { staggerChildren: 0.3 },
         },
       }}
-      className="relative bg-[#111112] text-white py-16 px-6 md:px-12 flex flex-col"
+      className="relative bg-[#111112] text-white py-16 px-6 flex flex-col"
     >
       {/* Section Heading */}
       <motion.h2

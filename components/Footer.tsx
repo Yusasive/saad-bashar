@@ -37,11 +37,11 @@ export default function Foooter() {
           transition: { duration: 0.8, ease: "easeOut" },
         },
       }}
-      className="bg-footer bg-black/35 pt-8"
+      className="bg-footer bg-black/35 pt-8 px-6"
     >
-      <div className="p-6 md:p-12">
+      <div className="py-10 border-t border-[#CDCDCD80]">
         <motion.h1
-          className="border-t pt-8 border-[#CDCDCD80] w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-mori"
+          className=" w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-mori"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 },
@@ -140,7 +140,7 @@ export default function Foooter() {
 
       {/* Footer Bottom */}
       <motion.div
-        className="flex py-5 px-6 md:px-12 items-center justify-left"
+        className="flex py-5 items-center justify-left"
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },
