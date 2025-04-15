@@ -114,7 +114,7 @@ export default function Navbar() {
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.3 }}
             // Align mobile menu margin too
-            className="fixed top-20 left-0 right-0 bg-[#0F0F0F] border-x border-b border-[#CDCDCD33] py-6 flex flex-col items-center space-y-10 text-[#CDCDCD] text-xl font-mori font-semibold rounded-b-2xl mx-4"
+            className="fixed top-20 left-0 right-0 bg-[#0F0F0F] border-x border-b border-[#CDCDCD33] py-6 flex flex-col items-center space-y-10 text-[#CDCDCD] text-xl font-mori font-semibold rounded-b-2xl mx-6"
           >
            {/* ... mobile links ... */}
             {["Projects", "About", "Contact"].map((item) => (

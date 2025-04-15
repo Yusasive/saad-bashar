@@ -26,8 +26,8 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
   // --- SVG Logo Data Setup ---
   // Array of the imported SVG Brand components
   const brandComponents = [
-    Brandtwo,
     Brandone,
+    Brandtwo,
     Brandthree,
     Brandfour,
     Brandfive,
@@ -165,18 +165,19 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
           initial="hidden"
           animate={brandControls} // Controlled by useInView
           variants={staticContainerVariants}
-          className="hidden md:flex justify-between gap-3 items-center"
+          // Add mx-6 here
+          className="hidden md:flex justify-center gap-3 items-center mx-6"
         >
           {brandComponents.map((BrandComponent, i) => (
             <motion.div
               key={`static-svg-${i}`}
               variants={staticLogoVariants}
-              className="flex items-center justify-center w-[270px] h-[100px]"
+              className="flex items-center justify-center w-[270px] md:w-[240px] h-[100px]"
             >
               <BrandComponent />
             </motion.div>
           ))}
-        </motion.div>
+      </motion.div>
 
         {/* --- SVG Marquee Layout (below md) --- */}
         <div

@@ -2,16 +2,16 @@ import Slider from "@/components/about/slider";
 
 export default function Hero1() {
   return (
-    <div className="bg-hero1 px-6  md:px-12 mt-20">
+    <div className="bg-hero1 px-6 pt-20">
       <div>
-        <h1 className="text-[#F3F3F3] text-2xl  md:text-5xl lg:text-[58px] font-medium leading-tight py-8 sm:py-12">
+        <h1 className="text-[#F3F3F3] text-2xl md:text-5xl lg:text-[58px] leading-[30px] md:leading-[80px] font-medium py-8 sm:py-12">
           My secrets blaze like fireworks, <br className="hidden sm:block" />{" "}
           illuminating the sky!
         </h1>
       </div>
 
       <div className="flex flex-col md:flex-row py-6 md:space-x-8">
-        <div className="text-lg md:text-2xl text-justify font-normal text-[#CDCDCD] space-y-6 sm:space-y-10 md:w-[45%] border border-[#CDCDCD33] p-6 rounded-2xl">
+        <div className="text-[12px] sm:text-[24px] md:text-2xl text-justify font-normal text-[#CDCDCD] space-y-6 sm:space-y-10 md:w-[45%] border border-[#CDCDCD33] p-6 rounded-2xl">
           <p>
             In the beautiful city of Lagos, Nigeria, my design journey started
             when my curiosity was sparked while seeing texts remixed with

@@ -1,7 +1,6 @@
 "use client";
 
 import Sidebar from "../Sidebar";
-import { useState } from "react";
 import {
   FirstImage,
   SecondImage,
@@ -17,21 +16,20 @@ import {
 } from "@/components/SvgLogo";
 import Image from "next/image";
 import { ThirtheenImage, FourteenImage } from "@/components/ImageIcon";
-import projectData from "@/public/data/product.json";
-import { Link } from "lucide-react";
+// import projectData from "@/public/data/product.json";
 import SeeMore from "@/components/homepage/SeeMore";
 
 
-interface Project {
-  _id: string;
-  title: string;
-  categories: string[];
-  year: number;
-  image: string;
-}
+// interface Project {
+//   _id: string;
+//   title: string;
+//   categories: string[];
+//   year: number;
+//   image: string;
+// }
 
 export default function Home() {
-  const [projects] = useState<Project[]>(projectData);
+  // const [projects] = useState<Project[]>(projectData);
   const sections = [
     { id: "background", label: "Background" },
     { id: "approach", label: "Approach" },
@@ -42,10 +40,10 @@ export default function Home() {
   return (
     <>
       {" "}
-      <div className="flex bg-[#111112]">
+      <div className="flex bg-[#0f0f0f]">
         <Sidebar sections={sections} />
 
-        <main className="ml-64 p-6 text-white bg-[#111112] min-h-screen pt-32">
+        <main className="p-6 text-white bg-[#0f0f0f] min-h-screen pt-32">
           <section
             id="background"
             className="mb-16 space-y-8 flex flex-col justify-center"
@@ -401,7 +399,7 @@ export default function Home() {
           </div>
         ))}
       </div> */}
-      <div className="bg-[#111112] -ml-72"><SeeMore /></div>
+      <div className="bg-[#0f0f0f] pb-10"><SeeMore /></div>
     </>
   );
 }

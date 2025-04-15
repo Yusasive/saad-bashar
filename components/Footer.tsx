@@ -37,7 +37,7 @@ export default function Foooter() {
           transition: { duration: 0.8, ease: "easeOut" },
         },
       }}
-      className="bg-footer bg-black/35 pt-8 px-6"
+      className="bg-footer bg-black/35 pt-[40px] px-6"
     >
       <div className="py-10 border-t border-[#CDCDCD80]">
         <motion.h1

@@ -5,9 +5,9 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Clock, Building, Tags, Mouse } from "@/components/SvgLogo";
+import { Clock, Building, Tags } from "@/components/SvgLogo";
 import { BackArrow } from "@/components/homepage/Iconts";
-
+import StickyButton from "@/components/HomeButton";
 interface Project {
   _id: string;
   title: string;
@@ -72,7 +72,7 @@ export default function ProjectDetails() {
   return (
     <>
       <motion.div
-        className="py-8 bg-[#111112] px-6"
+        className="py-8 bg-[#111112] px-6 flex justify-start"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -202,12 +202,13 @@ export default function ProjectDetails() {
         transition={{ duration: 0.6, delay: 0.5 }}
       >
         <motion.button
-          onClick={handleMouseClick}
-          className="cursor-pointer"
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 300 }}
+          // onClick={handleMouseClick}
+          // className="cursor-pointer"
+          // whileHover={{ scale: 1.1 }}
+          // transition={{ type: "spring", stiffness: 300 }}
         >
-          <Mouse />
+          
+          <StickyButton onClick={handleMouseClick}/>
         </motion.button>
       </motion.div>
       {/* <motion.div
