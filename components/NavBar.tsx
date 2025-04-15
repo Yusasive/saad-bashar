@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
+import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import Link from "next/link";
 import Image from "next/image";
 import FaceLogo from "@/public/images/projects/FaceLogo.png";
@@ -90,7 +91,7 @@ export default function Navbar() {
           whileTap={{ scale: 0.9 }}
           className="md:hidden text-white"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={28} /> : <HiOutlineMenuAlt4 size={28} />}
         </motion.button>
 
         {/* Scroll Progress Bar - MOVED INSIDE the content div */}
