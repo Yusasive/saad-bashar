@@ -6,7 +6,9 @@ import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import Link from "next/link";
 import Image from "next/image";
 import FaceLogo from "@/public/images/projects/FaceLogo.png";
-import { ArrowUp } from "@/components/SvgLogo";
+import { ArrowUp } from "@/components/SvgLogo"; // Assuming ArrowUp is your desired icon
+// Remove ArrowDown import if not used elsewhere
+// import { ArrowDown } from "./ImageIcon";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,16 +19,26 @@ export default function Navbar() {
       const scrollTop = window.scrollY;
       const scrollHeight =
         document.documentElement.scrollHeight - window.innerHeight;
-      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0; // Use 100% for full range
-      // Adjust if you deliberately want it shorter, e.g., * 98 for a small gap
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
       setScrollProgress(progress);
     };
 
     window.addEventListener("scroll", handleScroll);
-    // Initial calculation in case the page loads scrolled down
-    handleScroll();
+    handleScroll(); // Initial calculation
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Variants for the arrow rotation
+  const arrowVariants = {
+    initial: {
+      rotate: 0, // Default state (assuming ArrowUp points straight up or slightly up-right)
+      transition: { duration: 0.3 }
+    },
+    hover: {
+      rotate: 45, // Rotated state (points more towards the right)
+      transition: { duration: 0.3 }
+    }
+  };
 
   return (
     <motion.nav
@@ -35,7 +47,7 @@ export default function Navbar() {
       transition={{ type: "spring", stiffness: 120 }}
       className="fixed top-4 w-full z-50"
     >
-      {/* Main Content Area - ADD 'relative' */}
+      {/* Main Content Area */}
       <div className={`relative mx-6 backdrop-blur-lg pb-4 pt-1 flex justify-between items-center ${isOpen ? 'bg-[#0F0F0F] border-t border-x border-[#CDCDCD33] rounded-2xl p-4 pt-4' : 'border-b border-[#CDCDCD33]'}`}>
         {/* Logo */}
         <motion.div
@@ -54,33 +66,49 @@ export default function Navbar() {
         </motion.div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-10 lg:space-x-16 text-[#CDCDCD] text-xl font-mori font-semibold">
-         {/* ... links ... */}
-          {["Projects", "About", "Contact"].map((item) => (
+        <div style={{fontWeight: '400'}} className="hidden md:flex items-center space-x-4 lg:space-x-6 text-[#CDCDCD] text-xl font-mori font-[400]">
+          {/* Standard Links */}
+          {["Projects", "About", "Contact", "Resume"].map((item) => (
             <motion.div key={item} className="hover:text-gray-300">
               <Link href={`/${item.toLowerCase()}`}>{item}</Link>
             </motion.div>
           ))}
+
+          {/* LinkedIn Link with Rotating Arrow */}
           <motion.a
             href="https://www.linkedin.com/in/saadbashar/"
             target="_blank"
-            className="flex flex-row items-center "
+            className="flex flex-row items-center hover:text-gray-300" // Apply hover styling here too
+            initial="initial" // Set initial variant state for the link container
+            whileHover="hover" // Trigger 'hover' variant state on link hover
           >
             LinkedIn{" "}
-            <span className="ml-3">
+            <motion.span
+              className="ml-3 inline-block" // Use inline-block for transform to work
+              variants={arrowVariants} // Apply the variants to the arrow's wrapper
+            >
               <ArrowUp />
-            </span>
+            </motion.span>
           </motion.a>
-          <motion.div>
+
+          {/* Book a Call Link with Rotating Arrow */}
+          <motion.div // Use motion.div as the hover target for the Link inside
+            initial="initial"
+            whileHover="hover"
+            className="ml-0 lg:ml-[24px]" // Keep margin here or on Link as preferred
+          >
             <Link
               target="_blank"
               href="https://cal.com/saadbashar/15min?user=saadbashar"
-              className="flex flex-row items-center border border-[#D0D0D0] hover:border-transparent hover:bg-[#161616] px-4 py-3 rounded-lg transition-all duration-500 ease-in-out"
+              className="flex flex-row items-center border border-[#D0D0D0] hover:border-transparent hover:bg-[#161616] px-4 py-3 rounded-lg transition-all duration-500 ease-in-out" // Hover styles on the Link itself
             >
               Book a Call{" "}
-              <span className="ml-3">
+              <motion.span
+                className="ml-3 inline-block" // Use inline-block for transform to work
+                variants={arrowVariants} // Apply the variants to the arrow's wrapper
+              >
                 <ArrowUp />
-              </span>
+              </motion.span>
             </Link>
           </motion.div>
         </div>
@@ -94,19 +122,14 @@ export default function Navbar() {
           {isOpen ? <X size={28} /> : <HiOutlineMenuAlt4 size={28} />}
         </motion.button>
 
-        {/* Scroll Progress Bar - MOVED INSIDE the content div */}
-        {/* Positioned absolutely relative to the content div */}
+        {/* Scroll Progress Bar */}
         <motion.div
-          // NOTE: Position relative to the content div's bottom/left
-          // The border-b is visually part of the content div, so bottom-0 sits right on it.
-          // Adjust with bottom-[-1px] if needed to sit below the border visually.
           className="absolute bottom-0 left-0 h-[1px] bg-[#f3f3f3] transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%`, transformOrigin: 'left' }}
         />
-      </div> {/* End of content div */}
+      </div>
 
-
-      {/* Mobile Menu (stays outside the main content div) */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -114,10 +137,8 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            // Align mobile menu margin too
-            className="fixed top-20 left-0 right-0 bg-[#0F0F0F] border-x border-b border-[#CDCDCD33] py-6 flex flex-col items-center space-y-10 text-[#CDCDCD] text-xl font-mori font-semibold rounded-b-2xl mx-6"
+            className="fixed top-20 left-0 right-0 bg-[#0F0F0F] border-x border-b border-[#CDCDCD33] py-6 flex flex-col items-center space-y-10 text-[#CDCDCD] text-xl font-mori font-[400] rounded-b-2xl mx-6"
           >
-           {/* ... mobile links ... */}
             {["Projects", "About", "Contact"].map((item) => (
               <Link
                 key={item}
@@ -128,26 +149,40 @@ export default function Navbar() {
                 {item}
               </Link>
             ))}
+            {/* Mobile LinkedIn (already had rotation logic, keeping it) */}
             <motion.a
               href="https://www.linkedin.com/in/saadbashar/"
               target="_blank"
               className="flex flex-row items-center "
+              initial="initial" // Added for consistency if desired, though hover isn't the primary interaction on mobile
+              whileHover="hover" // Can keep for devices that support hover
             >
-              LinkedIn{" "}
-              <span className="ml-3">
+              <span className="mr-2">LinkedIn{" "}</span>
+              <motion.span
+                variants={arrowVariants}
+                className="inline-block"
+              >
                 <ArrowUp />
-              </span>
+              </motion.span>
             </motion.a>
-            <motion.div>
+            {/* Mobile Book a Call */}
+             <motion.div // Apply hover logic here too if desired for mobile/tablets
+                initial="initial"
+                whileHover="hover"
+             >
               <Link
                 target="_blank"
                 href="https://cal.com/saadbashar/15min?user=saadbashar"
-                className="flex flex-row items-center border border-[#D0D0D0] hover:border-transparent hover:bg-[#161616] px-4 py-3 rounded-lg transition"
+                onClick={() => setIsOpen(false)} // Close menu on click
+                className="flex flex-row items-center border border-[#D0D0D0] hover:border-transparent hover:bg-[#1E1E1E] px-4 py-3 rounded-lg transition"
               >
                 Book a Call{" "}
-                <span className="ml-3">
+                <motion.span // Wrap arrow for animation
+                    className="ml-3 inline-block"
+                    variants={arrowVariants}
+                >
                   <ArrowUp />
-                </span>
+                </motion.span>
               </Link>
             </motion.div>
           </motion.div>

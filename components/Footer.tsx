@@ -8,10 +8,22 @@ import {
   Email,
   LinkedIn,
   Twitter,
-  ArrowUp,
-} from "@/components/SvgLogo";
+  ArrowUp, // Assuming this is your SVG icon component
+} from "@/components/SvgLogo"; // Adjust path if needed
 import Nigeria from "@/public/images/projects/nigeria.png";
-import { ArrowDown } from "./ImageIcon";
+import { ArrowDown } from "./ImageIcon"; // Adjust path if needed
+
+// --- Define variants for the arrow rotation ---
+const arrowVariants = {
+  initial: {
+    rotate: 0, // Default state (arrow points up/diagonal)
+    transition: { duration: 0.3 }
+  },
+  hover: {
+    rotate: 45, // Rotated state (arrow points right). Adjust if needed (e.g., 45 for diagonal)
+    transition: { duration: 0.3 }
+  }
+};
 
 export default function Foooter() {
   const footerRef = useRef(null);
@@ -40,7 +52,7 @@ export default function Foooter() {
       className="bg-footer bg-black/35 pt-[40px] px-6"
     >
       <div className="py-10 border-t border-[#CDCDCD80]">
-        <motion.h1
+         <motion.h1
           className=" w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-mori"
           variants={{
             hidden: { opacity: 0, y: 20 },
@@ -48,7 +60,7 @@ export default function Foooter() {
           }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          Let&apos;s Build Something
+          Let&lsquo;s Build Something
         </motion.h1>
         <motion.h1
           className="w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-mori pt-2"
@@ -83,29 +95,42 @@ export default function Foooter() {
           }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
+          {/* Button 1: Book a Call */}
           <motion.button
-            // whileHover={{ scale: 1.05 }}
-            // whileTap={{ scale: 0.95 }}
-            className="w-[165px] md:w-[220px] flex justify-center flex-row items-center bg-[#1E1E1E] rounded-full px-2 md:px-6 py-4 md:py-4"
+            initial="initial" // Set initial state for children variants
+            whileHover="hover" // Trigger 'hover' state for children variants
+            className="w-[165px] md:w-[220px] flex justify-center flex-row items-center bg-[#1E1E1E] rounded-full px-2 md:px-6 py-4 md:py-4 hover:bg-transparent hover:border border-[#CDCDCD33] transition"
           >
-            Book a 1:1 Call{" "}
-            <span className="ml-3">
+            {/* Text */}
+            <span className="mr-2">Book a 1:1 Call</span>
+            <motion.span
+              variants={arrowVariants}
+              className="inline-block" 
+            >
               <ArrowUp />
-            </span>
+            </motion.span>
           </motion.button>
+
+          {/* Button 2: Email me */}
           <motion.button
-            // whileHover={{ scale: 1.05 }}
-            // whileTap={{ scale: 0.95 }}
-            className="w-[135px] md:w-[175px] flex flex-row justify-center items-center border border-[#CDCDCD33] rounded-full px-2 md:px-6 py-4 md:py-4"
+            initial="initial" // Set initial state for children variants
+            whileHover="hover" // Trigger 'hover' state for children variants
+            className="w-[135px] md:w-[175px] flex flex-row justify-center items-center border border-[#CDCDCD33] rounded-full px-2 md:px-6 py-4 md:py-4 hover:border-transparent hover:bg-[#1E1E1E]"
           >
-            Email me
-            <span className="ml-3">
+            {/* Text */}
+            <span className="mr-2">Email me</span> {/* Add margin if needed */}
+            {/* Arrow Wrapper - Apply variants here */}
+            <motion.span
+              variants={arrowVariants}
+              className="inline-block" // Use inline-block for transform
+            >
               <ArrowUp />
-            </span>
+            </motion.span>
           </motion.button>
         </motion.div>
 
         {/* Social Icons */}
+        {/* ... (rest of your social icons code) ... */}
         <motion.div
           className="flex flex-row space-x-2"
           variants={{
@@ -139,7 +164,8 @@ export default function Foooter() {
       </div>
 
       {/* Footer Bottom */}
-      <motion.div
+      {/* ... (rest of your footer bottom code) ... */}
+       <motion.div
         className="flex py-5 items-center justify-left"
         variants={{
           hidden: { opacity: 0, y: 20 },
@@ -156,7 +182,7 @@ export default function Foooter() {
             width={24}
             height={24}
           />
-          <span>&copy; {new Date().getFullYear()}</span>
+          <span>© {new Date().getFullYear()}</span>
         </div>
       </motion.div>
     </motion.div>

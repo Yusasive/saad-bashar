@@ -3,9 +3,9 @@ import Hero2 from "@/components/about/hero2";
 
 export default function About() {
   return (
-    <>
+    <div className="w-full">
       <Hero1 />
       <Hero2 />
-    </>
+    </div>
   );
 }

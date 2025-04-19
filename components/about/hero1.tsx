@@ -2,7 +2,7 @@ import Slider from "@/components/about/slider";
 
 export default function Hero1() {
   return (
-    <div className="bg-hero1 px-6 pt-20">
+    <div className="bg-hero1 w-full px-6 pt-20">
       <div>
         <h1 className="text-[#F3F3F3] text-2xl md:text-5xl lg:text-[58px] leading-[30px] md:leading-[80px] font-medium py-8 sm:py-12">
           My secrets blaze like fireworks, <br className="hidden sm:block" />{" "}
