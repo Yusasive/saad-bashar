@@ -23,7 +23,7 @@ const seeAlsoItems = [
 
 const SeeAlso = () => {
   return (
-    <div className="space-y-4 mx-8 my-6 -z-10">
+    <div className="space-y-4 mx-6">
       <h2 className="text-[#F3F3F3] text-[32px] font-semibold">See also</h2>
       <div className="space-y-3">
         {seeAlsoItems.map((item, index) => (

@@ -23,10 +23,10 @@ export default function Home() {
   return (
     <>
       {" "}
-      <div className="flex">
+      <div className="flex bg-[#0f0f0f]">
         <Sidebar sections={sections} />
 
-        <main className="ml-64 p-8 text-white bg-black min-h-screen pt-32">
+        <main className="p-6 text-white bg-[#0f0f0f] min-h-screen pt-32">
           <section
             id="challenge"
             className="mb-16 space-y-8 flex flex-col justify-center"
@@ -208,7 +208,9 @@ export default function Home() {
           </section>
         </main>
       </div>
-      <SeeMore />
+      <div className="bg-[#111112] pb-10">
+        <SeeMore />
+      </div>
     </>
   );
 }

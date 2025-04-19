@@ -64,7 +64,7 @@ export default function PreFooter() {
           },
         },
       }}
-      className="py-12 px-6 md:px-12 bg-[#111112]"
+      className="py-12 px-6 bg-[#111112]"
     >
       <motion.div
         variants={{

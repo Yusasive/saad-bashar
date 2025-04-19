@@ -5,9 +5,9 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Clock, Building, Tags, Mouse } from "@/components/SvgLogo";
+import { Clock, Building, Tags } from "@/components/SvgLogo";
 import { BackArrow } from "@/components/homepage/Iconts";
-
+import StickyButton from "@/components/HomeButton";
 interface Project {
   _id: string;
   title: string;
@@ -72,21 +72,21 @@ export default function ProjectDetails() {
   return (
     <>
       <motion.div
-        className="py-8 bg-[#111112] px-6 md:px-12"
+        className="py-8 bg-[#111112] px-6 flex justify-start"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <Link
           href="/projects"
-          className="flex flex-row items-center text-center text-2xl text-[#F3F3F3] font-normal font-mori mt-20"
+          className="flex flex-row items-center text-center text-[16px] md:text-2xl text-[#F3F3F3] font-normal font-mori mt-28"
         >
           <BackArrow /> <span className="ml-6">Back to Projects</span>
         </Link>
       </motion.div>
 
       <motion.div
-        className="p-6 md:p-12 bg-[#111112]"
+        className="p-6 py-14 bg-[#111112]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -106,13 +106,13 @@ export default function ProjectDetails() {
             }}
           >
             <motion.div
-              className="flex justify-between items-center"
+              className="flex justify-between items-center -mt-8"
               variants={{
                 hidden: { opacity: 0, x: -20 },
                 visible: { opacity: 1, x: 0 },
               }}
             >
-              <Image
+              {/* <Image
                 src={project.companyLogo}
                 alt={project.subTitle}
                 width={102}
@@ -128,11 +128,11 @@ export default function ProjectDetails() {
                 transition={{ type: "spring", stiffness: 200 }}
               >
                 {project.buttonWord}
-              </motion.a>
+              </motion.a> */}
             </motion.div>
 
             <motion.h1
-              className="text-[#F3F3F3] text-3xl md:text-5xl font-mori font-semibold"
+              className="text-[#F3F3F3] text-3xl md:text-5xl font-mori font-semibold leading-[64px]"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
@@ -155,14 +155,14 @@ export default function ProjectDetails() {
                 {project.year}
               </p>
               <p className="flex flex-row items-center text-base">
-                <span className="mr-2">
+                <span className="mr-1.5">
                   <Tags />
                 </span>
                 {project.categories.map((category, index) => (
-                  <span key={index} className="flex space-x-2 items-center">
+                  <span key={index} className="flex gap-2 items-center">
                     {category}
                     {index < project.categories.length - 1 && (
-                      <span className="mx-3">
+                      <span className="ml-3">
                         <Building />
                       </span>
                     )}
@@ -202,14 +202,38 @@ export default function ProjectDetails() {
         transition={{ duration: 0.6, delay: 0.5 }}
       >
         <motion.button
-          onClick={handleMouseClick}
-          className="cursor-pointer"
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 300 }}
+          // onClick={handleMouseClick}
+          // className="cursor-pointer"
+          // whileHover={{ scale: 1.1 }}
+          // transition={{ type: "spring", stiffness: 300 }}
         >
-          <Mouse />
+          
+          <StickyButton onClick={handleMouseClick}/>
         </motion.button>
       </motion.div>
+      {/* <motion.div
+        className="px-6 py-8 bg-[#111112]"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        <p className="text-[20px] text-white md:w-[80%] font-[400]">Doshup, from the word ‘Dosh’ a British slang originating from the ancient 1950’s which implies money and ‘Up’ the increasing upward trajectory we envisioned for our users. It is a student savings mobile solution meant to cater for the needs of higher education students. It has been identified that higher institution students are <span className="text-[#12E47F]"> the category of people who have the highest propensity of crashing into financial crises after leaving school. Hence, the need for a long term savings platform to help salvage this situation.</span></p>
+        <motion.div
+            className="w-full"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <Image
+              src={project.image}
+              alt={project.subTitle}
+              width={724}
+              height={543}
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </motion.div>
+      </motion.div> */}
+
     </>
   );
 }

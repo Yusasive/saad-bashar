@@ -2,7 +2,7 @@
 
 "use client";
 
-import Image, { StaticImageData } from "next/image"; // Import StaticImageData
+// Removed Image and StaticImageData import as we are using SVGs only now
 import { useState, useEffect, useRef } from "react";
 import {
   motion,
@@ -10,12 +10,10 @@ import {
   useAnimation,
   useInView,
 } from "framer-motion";
-import BC from "@/public/images/brands/BC.png";
-import BS from "@/public/images/brands/BS.png";
-import MM from "@/public/images/brands/MM.png";
-import S from "@/public/images/brands/S.png";
-import WT from "@/public/images/brands/WT.png";
+// Removed PNG imports: BC, BS, MM, S, WT
 import StickyButton from "../HomeButton"; // Ensure path is correct
+// Import your SVG Brand components
+import { Brandone, Brandtwo, Brandthree, Brandfour, Brandfive } from "./Brand"; // Adjust path if necessary
 
 interface HeroSectionProps {
   scrollToSection: (section: string) => void;
@@ -25,9 +23,18 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
   const words = ["landing pages", "mobile apps", "web apps", "websites"];
   const [index, setIndex] = useState(0);
 
-  // --- Logo Data Setup ---
-  const allLogos: StaticImageData[] = [BC, BS, MM, S, WT]; // Type the array
-  const duplicatedLogos = [...allLogos, ...allLogos]; // For marquee
+  // --- SVG Logo Data Setup ---
+  // Array of the imported SVG Brand components
+  const brandComponents = [
+    Brandone,
+    Brandtwo,
+    Brandthree,
+    Brandfour,
+    Brandfive,
+  ];
+  // Create duplicated array for seamless marquee
+  const duplicatedBrandComponents = [...brandComponents, ...brandComponents];
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,16 +45,12 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
 
   // Scroll animation setup for brand section
   const brandRef = useRef(null);
-  // Trigger when 20% of the element is in view, only once
   const brandInView = useInView(brandRef, { once: true, amount: 0.2 });
   const brandControls = useAnimation();
 
   useEffect(() => {
     if (brandInView) {
       brandControls.start("visible");
-    } else {
-      // Optional: Reset animation if it scrolls out of view and `once` is false
-      // brandControls.start("hidden");
     }
   }, [brandInView, brandControls]);
 
@@ -57,30 +60,30 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
 
   // Define variants for the static logo container and items
   const staticContainerVariants = {
-    hidden: { opacity: 0 }, // Keep it simple, stagger handles children
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 }, // Stagger animation
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
     },
   };
 
   const staticLogoVariants = {
-    hidden: { opacity: 0, y: 15, scale: 0.9 }, // Original subtle effect
+    hidden: { opacity: 0, y: 15, scale: 0.9 },
     visible: { opacity: 1, y: 0, scale: 1 },
   };
 
 
   return (
-    // --- Reverted Outer Div ---
+    // --- Outer Div ---
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       className="bg-container bg-black/35 pt-28 relative"
     >
-      {/* --- Reverted Top Section Structure --- */}
+      {/* --- Top Section Structure (Unchanged) --- */}
       <div className="mx-4 lg:mx-12 py-6">
-        {/* Reverted Intro Text */}
+        {/* Intro Text */}
         <motion.div
           initial={{ x: -100, opacity: 0, rotate: -3 }}
           animate={{ x: 0, opacity: 1, rotate: 0 }}
@@ -89,16 +92,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
         >
           <p className="w-[7rem] md:w-full text-left text-[14px] md:text-[25px]">
             Hi, I am{" "}
-            <motion.span
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 10,
-                delay: 0.5,
-              }}
-            >
+            <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.5 }} >
               Saad Bashar
             </motion.span>
           </p>
@@ -108,7 +102,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
           </p>
         </motion.div>
 
-        {/* Reverted Animated Title & Description */}
+        {/* Animated Title & Description */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -137,7 +131,6 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-             // Reverted class - original was missing mt-10? Adding it back based on context. Remove if unwanted.
             className="text-base md:text-[20px] mt-10 w-full md:w-[90%]"
           >
             As a Designer with more than 3 years of dedicated experience, I
@@ -148,12 +141,13 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
           </motion.p>
         </motion.div>
 
-         {/* Reverted Sticky Button Container */}
+         {/* Sticky Button Container */}
          <div className="mt-6 md:mt-0">
             <StickyButton onClick={handleScrollToProjects} />
         </div>
       </div>
 
+      {/* --- Brands Section --- */}
       <div className="space-y-5 mt-24 md:mt-36 px-6 lg:px-12 pb-10 md:pb-16">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
@@ -165,34 +159,27 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
           BRANDS I HAVE WORKED WITH
         </motion.h1>
 
+        {/* --- Static SVG Layout (md and up - Unchanged) --- */}
         <motion.div
-          ref={brandRef} 
+          ref={brandRef}
           initial="hidden"
           animate={brandControls} // Controlled by useInView
           variants={staticContainerVariants}
-          className="hidden md:flex justify-between gap-3 items-center"
+          // Add mx-6 here
+          className="hidden md:flex justify-center gap-3 items-center mx-6"
         >
-          {allLogos.map((img, i) => (
+          {brandComponents.map((BrandComponent, i) => (
             <motion.div
-              key={`static-${i}`}
-              variants={staticLogoVariants} // Apply individual item variants
-              whileHover={{ rotate: 3, scale: 1.05 }} // Slightly adjusted hover
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              key={`static-svg-${i}`}
+              variants={staticLogoVariants}
+              className="flex items-center justify-center w-[270px] md:w-[240px] h-[100px]"
             >
-              <Image
-                src={img}
-                alt={`Brand logo ${i + 1}`}
-                width={270} // Original width
-                height={100} // Original height
-                style={{ objectFit: "fill", height: '100px', width: '270px' }}
-                priority={i < 3} // Prioritize first few images
-              />
+              <BrandComponent />
             </motion.div>
           ))}
-        </motion.div>
+      </motion.div>
 
-        {/* --- Marquee Layout (below md) --- */}
-        {/* This div handles the marquee visibility and styling */}
+        {/* --- SVG Marquee Layout (below md) --- */}
         <div
           className="md:hidden w-full overflow-hidden relative" // Show only below md
           style={{
@@ -200,30 +187,29 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
             WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
           }}
         >
-          {/* This motion.div handles the infinite scrolling animation */}
           <motion.div
             className="flex" // Use flex to lay out items horizontally
-            animate={{ x: ['0%', '-50%'] }} // Animate position
+            animate={{ x: ['0%', '-50%'] }} // Animate position for loop
             transition={{
               ease: 'linear',
-              duration: 25, // Adjust duration for speed (longer is slower)
+              duration: 5, // Adjust duration for desired speed
               repeat: Infinity,
             }}
           >
-            {/* Map over the duplicated logos for the seamless loop */}
-            {duplicatedLogos.map((img, i) => (
-              // Wrapper for each logo in the marquee for spacing and sizing
+            {/* Map over the duplicated SVG components */}
+            {duplicatedBrandComponents.map((BrandComponent, i) => (
+              // Wrapper for each SVG in the marquee for spacing and sizing
               <div
-                key={`marquee-${i}`}
-                className="flex-shrink-0 px-4 py-2 mx-2" // Add padding and margin for spacing
-                style={{ width: 'auto' }} // Let image determine width based on height
+                key={`marquee-svg-${i}`}
+                className="flex-shrink-0 px-4 py-2 mx-2 flex items-center justify-center h-[60px]" // Set fixed height, center content
+                style={{ width: 'auto' }} // Allow width to adjust based on SVG aspect ratio and height
               >
-                <Image
-                  src={img}
-                  alt={`Brand logo ${i + 1} marquee`}
-                  height={60} // Set a fixed height for consistency in marquee
-                  width={162} // Calculate width based on original 270:100 ratio (60 * 2.7)
-                  style={{ height: '60px', width: 'auto', objectFit: 'contain' }} // Maintain aspect ratio
+                {/* Render the SVG component */}
+                <BrandComponent
+                   className="h-full w-auto" // Make SVG fill the height, width adjusts automatically
+                   // Alternatively, pass fixed width/height if needed and supported by SVGs
+                   // height={60}
+                   // width={162} // Adjust width based on SVG aspect ratio if fixed height
                 />
               </div>
             ))}
