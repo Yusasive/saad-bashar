@@ -139,7 +139,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed top-20 left-0 right-0 bg-[#0F0F0F] border-x border-b border-[#CDCDCD33] py-6 flex flex-col items-center space-y-10 text-[#CDCDCD] text-xl font-mori font-[400] rounded-b-2xl mx-6"
           >
-            {["Projects", "About", "Contact"].map((item) => (
+            {["Projects", "About", "Contact", "Resume"].map((item) => (
               <Link
                 key={item}
                 href={`/${item.toLowerCase()}`}
