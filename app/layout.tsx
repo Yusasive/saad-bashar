@@ -1,12 +1,12 @@
-"use client"; 
+// Remove "use client"; from here if it was added
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-import { ToastContainer } from "react-toastify";
-import { useState } from "react";
-import SplashScreen from "@/components/SplashScreen";
+// import AppWrapper from "@/components/AppWrapper"; // Import the new wrapper
+import AppWrapper from "./AppWrapper";
+// Remove useState import: import { useState } from "react";
+// Remove SplashScreen import if not needed elsewhere directly in layout
+// Remove Navbar/Footer/ToastContainer imports - they move to the wrapper
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,29 +18,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Keep metadata export if you have one
+// export const metadata = { ... }
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isSplashFinished, setIsSplashFinished] = useState(false);
+  // Remove useState hook:
+  // const [isSplashFinished, setIsSplashFinished] = useState(false);
 
   return (
     <html lang="en">
+      {/* Add suppressHydrationWarning if necessary, often helpful for extensions modifying HTML */}
       <body
+        suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
-        {!isSplashFinished && (
-          <SplashScreen onFinish={() => setIsSplashFinished(true)} />
-        )}
-        {isSplashFinished && (
-          <>
-            <ToastContainer position="top-right" autoClose={3000} />
-            <Navbar />
-            {children}
-            <Footer />
-          </>
-        )}
+        {/* Use the AppWrapper to handle state and conditional rendering */}
+        <AppWrapper>{children}</AppWrapper>
       </body>
     </html>
   );

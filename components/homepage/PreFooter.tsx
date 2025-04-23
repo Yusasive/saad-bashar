@@ -2,8 +2,10 @@
 
 import { useRef, useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
+// Assuming FaFigma might be needed based on previous context, keep import if used by Marquee internally
+// import { FaFigma } from "react-icons/fa";
 import { DiIllustrator } from "react-icons/di";
-import Marquee from "../homepage/Marquee";
+import Marquee from "../homepage/Marquee"; // Verify path
 import {
   Photoshop,
   Framer,
@@ -11,9 +13,10 @@ import {
   AfterEffects,
   Audition,
   Premiere,
-} from "../SvgLogo";
+} from "../SvgLogo"; // Verify path
 
 export default function PreFooter() {
+  // --- Data rows as provided by you ---
   const row1 = [
     { text: "User Interface" },
     { text: "Responsive Design" },
@@ -23,6 +26,7 @@ export default function PreFooter() {
   ];
 
   const row2 = [
+    // Ensure icons render correctly in Marquee
     { text: "Illustrator", icon: <DiIllustrator /> },
     { text: "Photoshop", icon: <Photoshop /> },
     { text: "Framer", icon: <Framer /> },
@@ -39,8 +43,9 @@ export default function PreFooter() {
     { text: "Time Management" },
     { text: "Critical Thinking" },
   ];
+  // --- End of data rows ---
 
-  // Scroll-based reveal
+  // Scroll-based reveal logic (unchanged)
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true });
   const controls = useAnimation();
@@ -52,6 +57,7 @@ export default function PreFooter() {
   }, [isInView, controls]);
 
   return (
+    // Outer container (unchanged)
     <motion.div
       ref={containerRef}
       initial="hidden"
@@ -66,6 +72,7 @@ export default function PreFooter() {
       }}
       className="py-12 px-6 bg-[#111112]"
     >
+      {/* Title section (unchanged) */}
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },
@@ -73,23 +80,26 @@ export default function PreFooter() {
         }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl md:text-5xl w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-center md:text-left">
+        <h2 className="text-3xl md:text-5xl w-fit py-2 mb-4 md:mb-8 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-center md:text-left">
           Skill Sets & Stacks
         </h2>
       </motion.div>
 
+      {/* --- Container for Marquees: ADD MASK HERE --- */}
       <motion.div
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-hidden
+                   [mask-image:linear-gradient(to_right,transparent_0%,black_2%,black_98%,transparent_100%)]
+                   [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_2%,black_98%,transparent_100%)]"
+        // Removed mb-4 md:mb-8 from h2, adjusted padding/margin if needed here or on Marquee items
         variants={{
           hidden: { opacity: 0 },
           visible: { opacity: 1 },
         }}
         transition={{ duration: 0.8 }}
       >
-        {/* Left & Right Fading Effect */}
-        <div className="pointer-events-none absolute left-0 right-0 inset-0 z-10 bg-gradient-to-r from-[#111112] via-transparent via-95% to-[#111112] to-95%"></div>
+        {/* REMOVED the placeholder div: <div className="pointer-events-none ..."></div> */}
 
-        {/* Marquee Content */}
+        {/* Marquee Row 1 (unchanged) */}
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 30 },
@@ -100,6 +110,7 @@ export default function PreFooter() {
           <Marquee items={row1} speed="slow" direction="right" />
         </motion.div>
 
+        {/* Marquee Row 2 (unchanged) */}
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 30 },
@@ -110,6 +121,7 @@ export default function PreFooter() {
           <Marquee items={row2} speed="slow" direction="left" />
         </motion.div>
 
+        {/* Marquee Row 3 (unchanged) */}
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 30 },
@@ -120,6 +132,8 @@ export default function PreFooter() {
           <Marquee items={row3} speed="slow" direction="right" />
         </motion.div>
       </motion.div>
+      {/* --- End of Marquee Container --- */}
+
     </motion.div>
   );
 }

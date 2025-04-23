@@ -142,21 +142,24 @@ export default function Foooter() {
           <motion.a
             href="https://www.linkedin.com/in/saadbashar/"
             target="_blank"
-            whileHover={{ scale: 1.2, rotate: 5 }}
+          
             transition={{ type: "spring", stiffness: 300 }}
           >
             <LinkedIn />
           </motion.a>
-          <motion.div whileHover={{ scale: 1.2, rotate: 5 }}>
+          <motion.div>
             <Email />
           </motion.div>
-          <motion.div whileHover={{ scale: 1.2, rotate: 5 }}>
+          <motion.a
+            href=""
+            target="_blank"
+          >
             <Twitter />
-          </motion.div>
+          </motion.a>
           <motion.a
             href="https://www.behance.net/saadbashar"
             target="_blank"
-            whileHover={{ scale: 1.2, rotate: 5 }}
+          
           >
             <Behance />
           </motion.a>

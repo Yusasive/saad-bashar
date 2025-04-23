@@ -5,7 +5,7 @@ import React, { useRef, useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { FirstArrow, SecondArrow, ThirdArrow, FourthArrow } from "./Iconts";
 import Step from "./Steps";
-
+import './homepage.css'
 const DesignProcess = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true });
@@ -37,12 +37,12 @@ const DesignProcess = () => {
           visible: { opacity: 1, y: 0 },
         }}
         transition={{ duration: 0.8 }}
-        className="text-3xl md:text-5xl w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-center md:text-left"
+        className="mb-10 text-[24px] md:text-5xl w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-center md:text-left"
       >
         My Design Process
       </motion.h2>
 
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center pl-16">
         <svg
           className="w-full max-w-[500px] md:max-w-[888px] h-auto"
           width="888"
@@ -102,6 +102,7 @@ const DesignProcess = () => {
           transition={{ duration: 0.8 }}
         >
           <Step
+            descriptionstyle=''
             title="Research"
             description={
               <>
@@ -110,8 +111,8 @@ const DesignProcess = () => {
               </>
             }
             icon={<FirstArrow />}
-            position="top-[20%] left-[44%] flex-row md:top-[12%] md:left-[47%] flex-row"
-            textPosition="top-[31%] ml-[5%] -translate-x-1/2 md:top-[30%] left-1/2"
+            position="flex-row flex-row arrowoneposition"
+            textPosition="righttext"
           />
         </motion.div>
 
@@ -123,6 +124,7 @@ const DesignProcess = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <Step
+            descriptionstyle=''
             title="Define"
             description={
               <>
@@ -131,8 +133,8 @@ const DesignProcess = () => {
               </>
             }
             icon={<SecondArrow />}
-            position="top-[49%] left-[80%] sm:left-[75%] md:left-[80%] lg:left-[81%] md:top-[45%] xl:left-[73%] flex-row"
-            textPosition="top-[46%] ml-[5%] -translate-x-1/2 md:top-[47%] left-1/2"
+            position="flex-row arrowtwoposition"
+            textPosition="secondtext"
           />
         </motion.div>
 
@@ -144,6 +146,7 @@ const DesignProcess = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <Step
+            descriptionstyle=''
             title="Design"
             description={
               <>
@@ -152,8 +155,8 @@ const DesignProcess = () => {
               </>
             }
             icon={<ThirdArrow />}
-            position="top-[58%] left-0 md:top-[61%] md:left-[0%] lg:left-[5%] xl:left-[10%] flex flex-col md:flex-col 2xl:flex-row-reverse"
-            textPosition="top-[62%] ml-[5%] -translate-x-1/2 md:top-[66%] left-[52%]"
+            position="arrowthreeposition flex flex-col md:flex-col 2xl:flex-row-reverse"
+            textPosition="righttext2"
           />
         </motion.div>
 
@@ -165,6 +168,7 @@ const DesignProcess = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <Step
+            descriptionstyle=''
             title="Reiterate"
             description={
               <>
@@ -173,8 +177,8 @@ const DesignProcess = () => {
               </>
             }
             icon={<FourthArrow />}
-            position="top-[78%] sm:top-[75%] md:top-[80%] left-[80%] sm:left-[75%] md:left-[80%] lg:left-[81%] xl:left-[73%] flex-row"
-            textPosition="top-[76%] ml-[5%] -translate-x-1/2 md:top-[82%] left-1/2"
+            position="arrowfourposition flex-row"
+            textPosition="secondtext2"
           />
         </motion.div>
       </div>

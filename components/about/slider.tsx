@@ -21,6 +21,7 @@ import {
   Sliderfive,
   Slidersix,
 } from './Imageslider'; // Adjust the path as necessary
+// import LabelAnimation from './AnimatedLabels';
 
 // Define the type for our slide data
 interface SlideData {

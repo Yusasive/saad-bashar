@@ -22,6 +22,17 @@ const imageVariants = {
   hover: { scale: 1.1 } // Zoom in on hover (adjust value as needed)
 };
 
+const arrowVariant2 = {
+  initial: {
+    rotate: 0, // Default state (assuming ArrowUp points straight up or slightly up-right)
+    transition: { duration: 0.3 }
+  },
+  hover: {
+    rotate: 45, // Rotated state (points more towards the right)
+    transition: { duration: 0.3 }
+  }
+};
+
 const arrowVariants = {
   rest: { rotate: 0 },
   hover: { rotate: 45 } // Rotate on hover (adjust value as needed)
@@ -171,7 +182,9 @@ export default function ProjectOverview() {
             className="flex flex-row items-center text-[#F3F3F3] text-sm md:text-xl border border-[#D0D0D0] hover:border-transparent hover:bg-[#161616] rounded-lg px-6 py-4 transition-all duration-500 ease-in-out"
           >
             View More
-            <motion.span initial={{ y: 0 }} className="ml-2">
+            <motion.span
+             variants={arrowVariant2} 
+              initial={{ y: 0 }} className="ml-2">
               <ArrowUp />
             </motion.span>
           </motion.button>
