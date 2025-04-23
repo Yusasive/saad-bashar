@@ -23,3 +23,353 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;   
   }
+
+  
+.righttext{
+  @apply right-28 top-[30%] 
+}
+@media screen and (max-width: 1300px) {
+  .righttext{
+    @apply right-16 top-[30%] 
+  }
+}
+
+@media screen and (max-width: 1290px) {
+  .righttext{
+    @apply right-0 top-[30%] 
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .righttext{
+    @apply right-40 top-[30%] 
+  }
+}
+@media screen and (max-width: 770px) {
+  .righttext{
+    @apply left-64 top-[35%] 
+  }
+}
+@media screen and (max-width: 600px) {
+  .righttext{
+    @apply left-56 top-[37%] 
+  }
+}
+@media screen and (max-width: 500px) {
+  .righttext{
+    @apply left-44 top-[38%] 
+  }
+}
+@media screen and (max-width: 370px) {
+  .righttext{
+    @apply right-2 top-[40%] 
+  }
+}
+
+
+
+
+
+
+.righttext2{
+  @apply right-28 top-[63%] 
+}
+@media screen and (max-width: 1300px) {
+  .righttext2{
+    @apply right-16 top-[60%] 
+  }
+}
+
+@media screen and (max-width: 1290px) {
+  .righttext2{
+    @apply right-0 top-[64%] 
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .righttext2{
+    @apply right-40 top-[64%] 
+  }
+}
+@media screen and (max-width: 770px) {
+  .righttext2{
+    @apply left-64 top-[65%] 
+  }
+}
+@media screen and (max-width: 600px) {
+  .righttext2{
+    @apply left-56 top-[65%] 
+  }
+}
+@media screen and (max-width: 500px) {
+  .righttext2{
+    @apply left-44 top-[64%] 
+  }
+}
+@media screen and (max-width: 370px) {
+  .righttext2{
+    @apply right-2 top-[64%] 
+  }
+}
+
+
+
+
+
+
+.secondtext{
+  @apply left-1/4 top-[46%] 
+}
+@media screen and (max-width: 1500px) {
+  .secondtext{
+    @apply left-72 top-[46%] 
+  }
+}
+@media screen and (max-width: 1300px) {
+  .secondtext{
+    @apply left-48 top-[46%] 
+  }
+}
+@media screen and (max-width: 1200px) {
+  .secondtext{
+    @apply left-36 top-[46%] 
+  }
+}
+@media screen and (max-width: 1024px) {
+  .secondtext{
+    @apply left-24 top-[46%] 
+  }
+}
+@media screen and (max-width: 770px) {
+  .secondtext{
+    @apply left-32 top-[49%] 
+  }
+}
+@media screen and (max-width: 700px) {
+  .secondtext{
+    @apply left-32 top-[49%] 
+  }
+}
+@media screen and (max-width: 625px) {
+  .secondtext{
+    @apply left-32 top-[49%]
+  }
+}
+@media screen and (max-width: 500px) {
+  .secondtext{
+    @apply left-32 top-[50%]
+  }
+}
+@media screen and (max-width: 400px) {
+  .secondtext{
+    @apply left-28 top-[50%]
+  }
+}
+
+
+
+
+
+.secondtext2{
+  @apply left-1/4 top-[81%] 
+}
+@media screen and (max-width: 1500px) {
+  .secondtext2{
+    @apply left-72 top-[81%] 
+  }
+}
+@media screen and (max-width: 1300px) {
+  .secondtext2{
+    @apply left-48 top-[81%] 
+  }
+}
+@media screen and (max-width: 1200px) {
+  .secondtext2{
+    @apply left-36 top-[81%] 
+  }
+}
+@media screen and (max-width: 1024px) {
+  .secondtext2{
+    @apply left-24 top-[81%] 
+  }
+}
+@media screen and (max-width: 900px) {
+  .secondtext2{
+    @apply left-32 top-[79%] 
+  }
+}
+@media screen and (max-width: 700px) {
+  .secondtext2{
+    @apply left-32 top-[79%] 
+  }
+}
+@media screen and (max-width: 625px) {
+  .secondtext2{
+    @apply left-32 top-[80%]
+  }
+}
+@media screen and (max-width: 500px) {
+  .secondtext2{
+    @apply left-32 top-[79%]
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .secondtext2{
+    @apply left-28 top-[77%]
+  }
+}
+
+
+
+
+
+
+.processIcon{
+  @apply w-[40px] sm:w-[52px] md:w-[140px] h-[30px] sm:h-[52px] md:h-[101px]
+}
+.arrowoneposition{
+  @apply top-[12%] left-[50%]
+}
+@media screen and (max-width: 770px) {
+  .arrowoneposition{
+    @apply left-[53%] top-[15%]
+  }
+}
+@media screen and (max-width: 500px) {
+  .arrowoneposition{
+    @apply left-[55%] top-[19%]
+  }
+}
+@media screen and (max-width: 400px) {
+  .arrowoneposition{
+    @apply left-[60%] top-[20%]
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .arrowoneposition{
+    @apply left-[60%] top-[20%]
+  }
+}
+
+
+
+
+
+.arrowtwoposition{
+  @apply top-[47%] left-[76%]
+}
+@media screen and (max-width: 1300px) {
+  .arrowtwoposition{
+    @apply top-[47%] left-[78%]
+  }
+}
+@media screen and (max-width: 1130px) {
+  .arrowtwoposition{
+    @apply top-[47%] left-[80%]
+  }
+}
+@media screen and (max-width: 1024px) {
+  .arrowtwoposition{
+    @apply top-[47%] left-[85%]
+  }
+}
+@media screen and (max-width: 770px) {
+  .arrowtwoposition{
+    @apply top-[50%] left-[80%]
+  }
+}
+@media screen and (max-width: 695px) {
+  .arrowtwoposition{
+    @apply top-[50%] left-[83%]
+  }
+}
+@media screen and (max-width: 600px) {
+  .arrowtwoposition{
+    @apply top-[51%] left-[84%]
+  }
+}
+
+
+
+
+
+
+.arrowthreeposition{
+  @apply top-[62%] left-[12%] 
+}
+
+@media screen and (max-width: 1290px) {
+  .arrowthreeposition{
+    @apply top-[62%] left-[10%]
+  }
+}
+@media screen and (max-width: 1150px) {
+  .arrowthreeposition{
+    @apply top-[62%] left-[5%]
+  }
+}
+@media screen and (max-width: 1030px) {
+  .arrowthreeposition{
+    @apply top-[62%] left-0
+  }
+}
+@media screen and (max-width: 770px) {
+  .arrowthreeposition{
+    @apply top-[63%] left-[18%]
+  }
+}
+@media screen and (max-width: 500px) {
+  .arrowthreeposition{
+    @apply top-[63%] left-[20%]
+  }
+}
+@media screen and (max-width: 400px) {
+  .arrowthreeposition{
+    @apply top-[63%] left-[25%]
+  }
+}
+
+
+
+
+
+.arrowfourposition{
+  @apply top-[80%] left-[76%]
+}
+@media screen and (max-width: 1290px) {
+  .arrowfourposition{
+    @apply top-[80%] left-[78%]
+  }
+}
+@media screen and (max-width: 1120px) {
+  .arrowfourposition{
+    @apply top-[80%] left-[80%]
+  }
+}
+@media screen and (max-width: 1024px) {
+  .arrowfourposition{
+    @apply top-[80%] left-[85%]
+  }
+}
+@media screen and (max-width: 770px) {
+  .arrowfourposition{
+    @apply top-[81%] left-[80%]
+  }
+}
+@media screen and (max-width: 680px) {
+  .arrowfourposition{
+    @apply top-[80%] left-[83%]
+  }
+}
+@media screen and (max-width: 600px) {
+  .arrowfourposition{
+    @apply top-[80%] left-[84%]
+  }
+}
+@media screen and (max-width: 520px) {
+  .arrowfourposition{
+    @apply top-[78%] left-[84%]
+  }
+}

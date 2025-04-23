@@ -7,8 +7,6 @@ import Link from "next/link";
 import Image from "next/image";
 import FaceLogo from "@/public/images/projects/FaceLogo.png";
 import { ArrowUp } from "@/components/SvgLogo"; // Assuming ArrowUp is your desired icon
-// Remove ArrowDown import if not used elsewhere
-// import { ArrowDown } from "./ImageIcon";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

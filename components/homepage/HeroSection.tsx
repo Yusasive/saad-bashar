@@ -79,10 +79,10 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="bg-container bg-black/35 pt-28 relative"
+      className="bg-container bg-black/35 pt-24 sm:pt-28 relative"
     >
       {/* --- Top Section Structure (Unchanged) --- */}
-      <div className="mx-4 lg:mx-12 py-6">
+      <div className="px-6 py-6">
         {/* Intro Text */}
         <motion.div
           initial={{ x: -100, opacity: 0, rotate: -3 }}
@@ -107,11 +107,12 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          className="text-[#F3F3F3] mt-8 py-8 md:py-10"
+          className="text-[#F3F3F3] mt-4 py-8 md:py-10"
         >
            <h1 className="text-[36px] md:text-5xl lg:text-[58px] w-full leading-[44px] md:leading-[54px] md:w-[80%] font-semibold font-mori">
             I am a UI/UX and Product Designer, designing compelling{" "}
-            <span className="relative inline-block align-bottom min-h-[1.2em] sm:min-h-[1.2em] md:min-h-[1em] lg:min-h-[.88em] min-w-[150px] md:min-w-[250px]">
+            <span className="sm:hidden inline-block"> landing pages, web apps, mobile apps, websites</span>
+            <span className="relative hidden sm:inline-block align-bottom min-h-[1.2em] sm:min-h-[1.2em] md:min-h-[1em] lg:min-h-[.88em] min-w-[150px] md:min-w-[250px]">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={words[index]}

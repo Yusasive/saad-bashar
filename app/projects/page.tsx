@@ -100,7 +100,7 @@ const transition = { duration: 0.3, ease: "easeInOut" };
             <Link
               key={project._id}
               href={`/projects/${project._id}`}
-              className="block group sticky top-28"
+              className="block group"
             >
               <motion.div
                 variants={{
@@ -160,6 +160,7 @@ const transition = { duration: 0.3, ease: "easeInOut" };
                  </div>
 
               </motion.div>
+              <p className="text-white text-[12px] sm:text-[16px] md:text-[24px] mt-4">{project.description}</p>
             </Link>
           ))}
         </motion.div>
