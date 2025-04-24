@@ -20,7 +20,7 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
           {/* Ensure ToastContainer is rendered within the client boundary */}
           <ToastContainer position="top-right" autoClose={3000} />
           <Navbar />
-          <main>{children}</main> {/* Render the actual page content passed down */}
+          <main className="w-full">{children}</main> {/* Render the actual page content passed down */}
           <Footer />
         </>
       )}

@@ -57,12 +57,12 @@
 }
 @media screen and (max-width: 500px) {
   .righttext{
-    @apply left-44 top-[38%] 
+    @apply left-32 top-[38%] 
   }
 }
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 390px) {
   .righttext{
-    @apply right-2 top-[40%] 
+    @apply right-16 top-[44%] 
   }
 }
 
@@ -103,12 +103,12 @@
 }
 @media screen and (max-width: 500px) {
   .righttext2{
-    @apply left-44 top-[64%] 
+    @apply left-32 top-[64%] 
   }
 }
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 390px) {
   .righttext2{
-    @apply right-2 top-[64%] 
+    @apply right-16 top-[66%] 
   }
 }
 
@@ -157,15 +157,14 @@
 }
 @media screen and (max-width: 500px) {
   .secondtext{
-    @apply left-32 top-[50%]
+    @apply left-24 top-[50%]
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 390px) {
   .secondtext{
-    @apply left-28 top-[50%]
+    @apply left-12 top-[54%]
   }
 }
-
 
 
 
@@ -210,13 +209,13 @@
 }
 @media screen and (max-width: 500px) {
   .secondtext2{
-    @apply left-32 top-[79%]
+    @apply left-24 top-[79%]
   }
 }
 
 @media screen and (max-width: 400px) {
   .secondtext2{
-    @apply left-28 top-[77%]
+    @apply left-12 top-[77%]
   }
 }
 
@@ -229,27 +228,27 @@
   @apply w-[40px] sm:w-[52px] md:w-[140px] h-[30px] sm:h-[52px] md:h-[101px]
 }
 .arrowoneposition{
-  @apply top-[12%] left-[50%]
+  @apply top-[12%] left-[45%]
 }
 @media screen and (max-width: 770px) {
   .arrowoneposition{
-    @apply left-[53%] top-[15%]
+    @apply left-[47%] top-[15%]
   }
 }
 @media screen and (max-width: 500px) {
   .arrowoneposition{
-    @apply left-[55%] top-[19%]
+    @apply left-[46%] top-[19%]
   }
 }
 @media screen and (max-width: 400px) {
   .arrowoneposition{
-    @apply left-[60%] top-[20%]
+    @apply left-[47%] top-[20%]
   }
 }
 
 @media screen and (max-width: 360px) {
   .arrowoneposition{
-    @apply left-[60%] top-[20%]
+    @apply left-[47%] top-[30%]
   }
 }
 
@@ -258,38 +257,49 @@
 
 
 .arrowtwoposition{
-  @apply top-[47%] left-[76%]
+  @apply top-[47%] left-[69%]
 }
 @media screen and (max-width: 1300px) {
   .arrowtwoposition{
-    @apply top-[47%] left-[78%]
+    @apply top-[47%] left-[72%]
   }
 }
 @media screen and (max-width: 1130px) {
   .arrowtwoposition{
-    @apply top-[47%] left-[80%]
+    @apply top-[47%] left-[75%]
   }
 }
 @media screen and (max-width: 1024px) {
   .arrowtwoposition{
-    @apply top-[47%] left-[85%]
+    @apply top-[47%] left-[81%]
   }
 }
 @media screen and (max-width: 770px) {
   .arrowtwoposition{
-    @apply top-[50%] left-[80%]
+    @apply top-[50%] left-[74%]
   }
 }
 @media screen and (max-width: 695px) {
   .arrowtwoposition{
-    @apply top-[50%] left-[83%]
+    @apply top-[50%] left-[76%]
   }
 }
 @media screen and (max-width: 600px) {
   .arrowtwoposition{
-    @apply top-[51%] left-[84%]
+    @apply top-[51%] left-[77%]
   }
 }
+@media screen and (max-width: 460px) {
+  .arrowtwoposition{
+    @apply top-[53%] left-[75%]
+  }
+}
+@media screen and (max-width: 390px) {
+  .arrowtwoposition{
+    @apply top-[56%] left-[75%]
+  }
+}
+
 
 
 
@@ -297,37 +307,52 @@
 
 
 .arrowthreeposition{
-  @apply top-[62%] left-[12%] 
+  @apply top-[62%] left-[10%] 
+}
+@media screen and (max-width: 1400px) {
+  .arrowthreeposition{
+    @apply top-[62%] left-[8%]
+  }
 }
 
 @media screen and (max-width: 1290px) {
   .arrowthreeposition{
-    @apply top-[62%] left-[10%]
+    @apply top-[62%] left-[5%]
   }
 }
 @media screen and (max-width: 1150px) {
   .arrowthreeposition{
-    @apply top-[62%] left-[5%]
+    @apply top-[62%] left-[0%]
   }
 }
 @media screen and (max-width: 1030px) {
   .arrowthreeposition{
-    @apply top-[62%] left-0
+    @apply top-[62%] -left-[2%]
   }
 }
 @media screen and (max-width: 770px) {
   .arrowthreeposition{
-    @apply top-[63%] left-[18%]
+    @apply top-[63%] left-[12%]
+  }
+}
+@media screen and (max-width: 700px) {
+  .arrowthreeposition{
+    @apply top-[63%] left-[9%]
+  }
+}
+@media screen and (max-width: 630px) {
+  .arrowthreeposition{
+    @apply top-[63%] left-[7%]
   }
 }
 @media screen and (max-width: 500px) {
   .arrowthreeposition{
-    @apply top-[63%] left-[20%]
+    @apply top-[63%] left-[7%]
   }
 }
 @media screen and (max-width: 400px) {
   .arrowthreeposition{
-    @apply top-[63%] left-[25%]
+    @apply top-[64%] left-[8%]
   }
 }
 
@@ -336,40 +361,45 @@
 
 
 .arrowfourposition{
-  @apply top-[80%] left-[76%]
+  @apply top-[80%] left-[69%]
 }
 @media screen and (max-width: 1290px) {
   .arrowfourposition{
-    @apply top-[80%] left-[78%]
+    @apply top-[80%] left-[72%]
   }
 }
 @media screen and (max-width: 1120px) {
   .arrowfourposition{
-    @apply top-[80%] left-[80%]
+    @apply top-[80%] left-[75%]
   }
 }
 @media screen and (max-width: 1024px) {
   .arrowfourposition{
-    @apply top-[80%] left-[85%]
+    @apply top-[80%] left-[81%]
   }
 }
 @media screen and (max-width: 770px) {
   .arrowfourposition{
-    @apply top-[81%] left-[80%]
+    @apply top-[81%] left-[74%]
   }
 }
 @media screen and (max-width: 680px) {
   .arrowfourposition{
-    @apply top-[80%] left-[83%]
+    @apply top-[80%] left-[77%]
   }
 }
 @media screen and (max-width: 600px) {
   .arrowfourposition{
-    @apply top-[80%] left-[84%]
+    @apply top-[80%] left-[76%]
   }
 }
 @media screen and (max-width: 520px) {
   .arrowfourposition{
-    @apply top-[78%] left-[84%]
+    @apply top-[79%] left-[77%]
+  }
+}
+@media screen and (max-width: 460px) {
+  .arrowfourposition{
+    @apply top-[79%] left-[75%]
   }
 }
