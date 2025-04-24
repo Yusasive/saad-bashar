@@ -34,7 +34,7 @@ export default function RootLayout({
       {/* Add suppressHydrationWarning if necessary, often helpful for extensions modifying HTML */}
       <body
         suppressHydrationWarning={true}
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden w-full`}
       >
         {/* Use the AppWrapper to handle state and conditional rendering */}
         <AppWrapper>{children}</AppWrapper>

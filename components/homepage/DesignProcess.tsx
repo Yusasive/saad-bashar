@@ -28,7 +28,7 @@ const DesignProcess = () => {
           transition: { staggerChildren: 0.3 },
         },
       }}
-      className="relative bg-[#111112] text-white py-16 px-6 flex flex-col"
+      className="relative bg-[#111112] text-white py-16 flex flex-col px-16 lg:pl-0"
     >
       {/* Section Heading */}
       <motion.h2
@@ -37,12 +37,12 @@ const DesignProcess = () => {
           visible: { opacity: 1, y: 0 },
         }}
         transition={{ duration: 0.8 }}
-        className="mb-10 text-[24px] md:text-5xl w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-center md:text-left"
+        className="mb-10 text-[24px] md:text-5xl w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-center md:text-left px-6"
       >
         My Design Process
       </motion.h2>
 
-      <div className="flex flex-col items-center pl-16">
+      <div className="flex flex-col items-center">
         <svg
           className="w-full max-w-[500px] md:max-w-[888px] h-auto"
           width="888"
@@ -106,7 +106,7 @@ const DesignProcess = () => {
             title="Research"
             description={
               <>
-                Discovery Mode Activated! Uncovering user insights, <br />
+                Discovery Mode Activated! Uncovering user insights,
                 industry trends, and creative opportunities.
               </>
             }
