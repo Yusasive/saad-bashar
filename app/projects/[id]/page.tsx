@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { Clock, Building, Tags } from "@/components/SvgLogo";
 import { BackArrow } from "@/components/homepage/Iconts";
 import StickyButton from "@/components/HomeButton";
-import { SecondImgProject } from "@/components/HomeButton";
+// import { SecondImgProject } from "@/components/HomeButton";
 import SecImg from '../../../public/secprojectimg.svg'
 interface Project {
   _id: string;

@@ -141,7 +141,7 @@ export default function Navbar() {
             className="fixed top-20 left-0 right-0 bg-[#0F0F0F] border-x border-b border-[#CDCDCD33] py-6 flex flex-col items-center space-y-10 text-[#CDCDCD] text-xl font-mori font-[400] rounded-b-2xl mx-6"
           >
             {["Projects", "About", "Contact", "Resume"].map((item) => (
-              <div>
+              <div key={item}>
                   {
                     item === 'Resume' ? (
                       <Link
