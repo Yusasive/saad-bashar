@@ -68,7 +68,10 @@ export default function Navbar() {
           {/* Standard Links */}
           {["Projects", "About", "Contact", "Resume"].map((item) => (
             <motion.div key={item} className="hover:text-gray-300">
-              <Link href={`/${item.toLowerCase()}`}>{item}</Link>
+              {
+                item === 'Resume'? <Link target="_blank" href={'https://docs.google.com/document/d/1AejG_2FalixUvcMBY3p6sjWRJvQGlFm3_GA_HGnIsT8/edit?tab=t.0'}>{item}</Link>:
+                <Link href={`/${item.toLowerCase()}`}>{item}</Link>
+              }
             </motion.div>
           ))}
 
@@ -138,14 +141,30 @@ export default function Navbar() {
             className="fixed top-20 left-0 right-0 bg-[#0F0F0F] border-x border-b border-[#CDCDCD33] py-6 flex flex-col items-center space-y-10 text-[#CDCDCD] text-xl font-mori font-[400] rounded-b-2xl mx-6"
           >
             {["Projects", "About", "Contact", "Resume"].map((item) => (
-              <Link
-                key={item}
-                href={`/${item.toLowerCase()}`}
-                onClick={() => setIsOpen(false)}
-                className="hover:text-gray-300"
-              >
-                {item}
-              </Link>
+              <div>
+                  {
+                    item === 'Resume' ? (
+                      <Link
+                      key={item}
+                      href={`/${item.toLowerCase()}`}
+                      onClick={() => setIsOpen(false)}
+                      className="hover:text-gray-300"
+                      >
+                        {item}
+                      </Link>
+                    ):(
+                      <Link
+                      key={item}
+                      target="_blank"
+                      href={`https://docs.google.com/document/d/1AejG_2FalixUvcMBY3p6sjWRJvQGlFm3_GA_HGnIsT8/edit?tab=t.0`}
+                      onClick={() => setIsOpen(false)}
+                      className="hover:text-gray-300"
+                      >
+                        {item}
+                      </Link>
+                    )
+                  }
+              </div>
             ))}
             {/* Mobile LinkedIn (already had rotation logic, keeping it) */}
             <motion.a
