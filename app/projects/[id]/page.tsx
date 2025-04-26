@@ -198,7 +198,7 @@ export default function ProjectDetails() {
         {
           project._id === '2' && (
             <div className="text-white mt-24 md:mt-36">
-              <p className="text-[15px] md:text-[20px] w-full md:w-[85%] lg:w-[70%]">Doshup, from the word 'Dosh' a British slang originating from the ancient 1950's which implies money and 'Up' the increasing upward trajectory we envisioned for our users. It is a student savings mobile solution meant to cater for the needs of higher education students. It has been identified that higher institution students are <span className="text-[#12E47F]">the category of people who have the highest propensity of crashing into financial crises after leaving school.</span> Hence, the need for a long term savings platform to help salvage this situation.</p>
+              <p className="text-[15px] md:text-[20px] w-full md:w-[85%] lg:w-[70%]">Doshup, from the word &apos;Dosh&apos; a British slang originating from the ancient 1950&apos;s which implies money and &apos;Up&apos; the increasing upward trajectory we envisioned for our users. It is a student savings mobile solution meant to cater for the needs of higher education students. It has been identified that higher institution students are <span className="text-[#12E47F]">the category of people who have the highest propensity of crashing into financial crises after leaving school.</span> Hence, the need for a long term savings platform to help salvage this situation.</p>
               <div className="flex flex-col items-center justify-center w-full h-auto mt-6">
                 {/* <SecondImgProject /> */}
                 <Image 
