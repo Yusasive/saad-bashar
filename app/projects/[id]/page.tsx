@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { Clock, Building, Tags } from "@/components/SvgLogo";
 import { BackArrow } from "@/components/homepage/Iconts";
 import StickyButton from "@/components/HomeButton";
+// import { SecondImgProject } from "@/components/HomeButton";
+import SecImg from '../../../public/secprojectimg.svg'
 interface Project {
   _id: string;
   title: string;
@@ -91,7 +93,7 @@ export default function ProjectDetails() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="flex flex-col md:flex-row gap-10">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-10">
           <motion.div
             className="flex-1 space-y-6"
             initial="hidden"
@@ -106,7 +108,7 @@ export default function ProjectDetails() {
             }}
           >
             <motion.div
-              className="flex justify-between items-center -mt-8"
+              className="flex items-center -mt-12"
               variants={{
                 hidden: { opacity: 0, x: -20 },
                 visible: { opacity: 1, x: 0 },
@@ -132,7 +134,7 @@ export default function ProjectDetails() {
             </motion.div>
 
             <motion.h1
-              className="text-[#F3F3F3] text-3xl md:text-5xl font-mori font-semibold leading-[64px]"
+              className="text-[#F3F3F3] text-3xl md:text-5xl font-mori font-semibold md:leading-[50px] lg:leading-[64px]"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
@@ -193,7 +195,24 @@ export default function ProjectDetails() {
             />
           </motion.div>
         </div>
+        {
+          project._id === '2' && (
+            <div className="text-white mt-24 md:mt-36">
+              <p className="text-[15px] md:text-[20px] w-full md:w-[85%] lg:w-[70%]">Doshup, from the word &apos;Dosh&apos; a British slang originating from the ancient 1950&apos;s which implies money and &apos;Up&apos; the increasing upward trajectory we envisioned for our users. It is a student savings mobile solution meant to cater for the needs of higher education students. It has been identified that higher institution students are <span className="text-[#12E47F]">the category of people who have the highest propensity of crashing into financial crises after leaving school.</span> Hence, the need for a long term savings platform to help salvage this situation.</p>
+              <div className="flex flex-col items-center justify-center w-full h-auto mt-6">
+                {/* <SecondImgProject /> */}
+                <Image 
+                  src={SecImg}
+                  alt=""
+                  width={1515}
+                  height={810}
+                />
+              </div>
+            </div>
+          )
+        }
       </motion.div>
+
 
       <motion.div
         className="flex items-center justify-center py-8 bg-[#111112]"
@@ -201,39 +220,10 @@ export default function ProjectDetails() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <motion.button
-          // onClick={handleMouseClick}
-          // className="cursor-pointer"
-          // whileHover={{ scale: 1.1 }}
-          // transition={{ type: "spring", stiffness: 300 }}
-        >
-          
+        <motion.button>     
           <StickyButton onClick={handleMouseClick}/>
         </motion.button>
       </motion.div>
-      {/* <motion.div
-        className="px-6 py-8 bg-[#111112]"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-      >
-        <p className="text-[20px] text-white md:w-[80%] font-[400]">Doshup, from the word ‘Dosh’ a British slang originating from the ancient 1950’s which implies money and ‘Up’ the increasing upward trajectory we envisioned for our users. It is a student savings mobile solution meant to cater for the needs of higher education students. It has been identified that higher institution students are <span className="text-[#12E47F]"> the category of people who have the highest propensity of crashing into financial crises after leaving school. Hence, the need for a long term savings platform to help salvage this situation.</span></p>
-        <motion.div
-            className="w-full"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <Image
-              src={project.image}
-              alt={project.subTitle}
-              width={724}
-              height={543}
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </motion.div>
-      </motion.div> */}
-
     </>
   );
 }

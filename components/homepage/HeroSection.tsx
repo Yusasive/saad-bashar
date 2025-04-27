@@ -175,7 +175,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               variants={staticLogoVariants}
               className="flex items-center justify-center w-[270px] md:w-[240px] h-[100px]"
             >
-              {/* <BrandComponent /> */}
+              <BrandComponent />
             </motion.div>
           ))}
       </motion.div>
