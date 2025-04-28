@@ -67,13 +67,42 @@ export default function Navbar() {
         <div style={{fontWeight: '400'}} className="hidden md:flex items-center space-x-4 lg:space-x-6 text-[#CDCDCD] text-xl font-mori font-[400]">
           {/* Standard Links */}
           {["Projects", "About", "Contact", "Resume"].map((item) => (
-            <motion.div key={item} className="hover:text-gray-300">
-              {
-                item === 'Resume'? <Link target="_blank" href={'https://docs.google.com/document/d/1AejG_2FalixUvcMBY3p6sjWRJvQGlFm3_GA_HGnIsT8/edit?tab=t.0'}>{item}</Link>:
-                <Link href={`/${item.toLowerCase()}`}>{item}</Link>
-              }
-            </motion.div>
-          ))}
+              <div key={item}>
+                  {
+                    item === 'Projects' || item === 'About' ? (
+                      <Link
+                      key={item}
+                      href={`/${item.toLowerCase()}`}
+                      onClick={() => setIsOpen(false)}
+                      className="hover:text-gray-300"
+                      >
+                        {item}
+                      </Link>
+                    ):
+                    item === 'Contact' ?(
+                      <Link
+                      key={item}
+                      href={`#footer`}
+                      onClick={() => setIsOpen(false)}
+                      className="hover:text-gray-300"
+                      >
+                        {item}
+                      </Link>
+                    ):
+                    (
+                      <Link
+                      key={item}
+                      target="_blank"
+                      href={`https://docs.google.com/document/d/1AejG_2FalixUvcMBY3p6sjWRJvQGlFm3_GA_HGnIsT8/edit?tab=t.0`}
+                      onClick={() => setIsOpen(false)}
+                      className="hover:text-gray-300"
+                      >
+                        {item}
+                      </Link>
+                    )
+                  }
+              </div>
+            ))}
 
           {/* LinkedIn Link with Rotating Arrow */}
           <motion.a
@@ -143,7 +172,7 @@ export default function Navbar() {
             {["Projects", "About", "Contact", "Resume"].map((item) => (
               <div key={item}>
                   {
-                    item === 'Resume' ? (
+                    item === 'Projects' || item === 'About' ? (
                       <Link
                       key={item}
                       href={`/${item.toLowerCase()}`}
@@ -152,7 +181,18 @@ export default function Navbar() {
                       >
                         {item}
                       </Link>
-                    ):(
+                    ):
+                    item === 'Contact' ?(
+                      <Link
+                      key={item}
+                      href={`#footer`}
+                      onClick={() => setIsOpen(false)}
+                      className="hover:text-gray-300"
+                      >
+                        {item}
+                      </Link>
+                    ):
+                    (
                       <Link
                       key={item}
                       target="_blank"
