@@ -68,7 +68,7 @@ export default function ProjectDetails() {
   }
 
   const handleMouseClick = () => {
-    router.push(`/projects/${project._id}/overview/${project.overview}`);
+    router.push(`/projects/${project._id}/overview/${project.overview}`);    
   };
 
   return (
@@ -114,23 +114,6 @@ export default function ProjectDetails() {
                 visible: { opacity: 1, x: 0 },
               }}
             >
-              {/* <Image
-                src={project.companyLogo}
-                alt={project.subTitle}
-                width={102}
-                height={72}
-                className="object-contain"
-              />
-              <motion.a
-                href={project.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#1E1E1E] text-[#F3F3F3] text-lg font-semibold px-4 py-3 rounded-lg"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                {project.buttonWord}
-              </motion.a> */}
             </motion.div>
 
             <motion.h1
@@ -203,7 +186,7 @@ export default function ProjectDetails() {
                 {/* <SecondImgProject /> */}
                 <Image 
                   src={SecImg}
-                  alt=""
+                  alt="Description of Doshup screens"
                   width={1515}
                   height={810}
                 />
@@ -220,9 +203,9 @@ export default function ProjectDetails() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <motion.button>     
+        {/* <motion.button>      */}
           <StickyButton onClick={handleMouseClick}/>
-        </motion.button>
+        {/* </motion.button> */}
       </motion.div>
     </>
   );
@@ -237,7 +220,7 @@ function Detail({ label, value }: { label: string; value: string }) {
       transition={{ duration: 0.6 }}
     >
       <span className="text-base text-[#CDCDCD]">{label}</span>
-      <span className="text-xl text-[#F3F3F3]">{value}</span>
+      <span className="text-[18px] md:text-xl text-[#F3F3F3]">{value}</span>
     </motion.p>
   );
 }

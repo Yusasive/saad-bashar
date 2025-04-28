@@ -51,7 +51,7 @@ export default function Foooter() {
       }}
       className="bg-footer bg-black/35 pt-[40px] px-6"
     >
-      <div className="py-10 border-t border-[#CDCDCD80]">
+      <div className="py-10 border-t border-[#CDCDCD80]" id="footer">
          <motion.h1
           className=" w-fit py-2 font-semibold bg-gradient-to-r from-[#F3F3F3] to-[#9090907c] text-transparent bg-clip-text text-2xl md:text-5xl font-mori"
           variants={{
