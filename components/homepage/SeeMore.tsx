@@ -9,7 +9,7 @@ const seeAlsoItems = [
     year: "2024",
     title:
       "Accessing Data on Insured Buildings and Buildings Under Construction",
-    link: "projects/1",
+    link: "/projects/1",
   },
   {
     image:
@@ -41,15 +41,15 @@ const SeeAlso = () => {
                 className="rounded-xl"
               />
             </div>
-            <div className="flex-1">
-              <p className="text-base  text-[#CDCDCD]">
+            <div className="sm:flex-1">
+              <p className="text-[11px] sm:text-base  text-[#CDCDCD]">
                 {item.category} • {item.year}
               </p>
-              <h3 className="text-[#F3F3F3] font-medium text-2xl">
+              <h3 className="text-[#F3F3F3] font-medium text-[12px] sm:text-lg md:text-2xl">
                 {item.title}
               </h3>
             </div>
-            <ArrowRight className="text-[#F3F3F3] text-2xl font-semibold" />
+            <ArrowRight className="text-[#F3F3F3] text-xl sm:text-2xl font-semibold" />
           </a>
         ))}
       </div>

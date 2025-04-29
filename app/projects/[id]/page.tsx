@@ -108,12 +108,29 @@ export default function ProjectDetails() {
             }}
           >
             <motion.div
-              className="flex items-center -mt-12"
+              className="flex items-center justify-between -mt-12"
               variants={{
                 hidden: { opacity: 0, x: -20 },
                 visible: { opacity: 1, x: 0 },
               }}
             >
+              <Image
+                src={project.companyLogo}
+                alt={project.subTitle}
+                width={102}
+                height={72}
+                className="object-contain"
+              />
+              <motion.a
+                href={project.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#1E1E1E] text-[#F3F3F3] text-lg font-semibold px-4 py-3 rounded-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                {project.buttonWord}
+              </motion.a>
             </motion.div>
 
             <motion.h1

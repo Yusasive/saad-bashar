@@ -12,6 +12,7 @@ import {
 } from "@/components/SvgLogo"; // Adjust path if needed
 import Nigeria from "@/public/images/projects/nigeria.png";
 import { ArrowDown } from "./ImageIcon"; // Adjust path if needed
+import Link from "next/link";
 
 // --- Define variants for the arrow rotation ---
 const arrowVariants = {
@@ -102,7 +103,10 @@ export default function Foooter() {
             className="w-[165px] md:w-[220px] flex justify-center flex-row items-center bg-[#1E1E1E] rounded-full px-2 md:px-6 py-4 md:py-4 hover:bg-transparent hover:border border-[#CDCDCD33] transition"
           >
             {/* Text */}
-            <span className="mr-2">Book a 1:1 Call</span>
+            <Link 
+              target="_blank"
+              href="https://cal.com/saadbashar/15min?user=saadbashar"
+              className="mr-2">Book a 1:1 Call</Link>
             <motion.span
               variants={arrowVariants}
               className="inline-block" 
@@ -111,26 +115,26 @@ export default function Foooter() {
             </motion.span>
           </motion.button>
 
-          {/* Button 2: Email me */}
-          <motion.button
-            initial="initial" // Set initial state for children variants
-            whileHover="hover" // Trigger 'hover' state for children variants
-            className="w-[135px] md:w-[175px] flex flex-row justify-center items-center border border-[#CDCDCD33] rounded-full px-2 md:px-6 py-4 md:py-4 hover:border-transparent hover:bg-[#1E1E1E]"
+          <motion.a
+            href="mailto:saadbashar1433@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial="initial"
+            whileHover="hover"
+            className="w-[135px] md:w-[175px] flex flex-row justify-center items-center border border-[#CDCDCD33] rounded-full px-2 md:px-6 py-4 md:py-4 hover:border-transparent hover:bg-[#1E1E1E] cursor-pointer text-current no-underline"
           >
-            {/* Text */}
-            <span className="mr-2">Email me</span> {/* Add margin if needed */}
-            {/* Arrow Wrapper - Apply variants here */}
+            <span className="mr-2">Email me</span>
+
             <motion.span
               variants={arrowVariants}
-              className="inline-block" // Use inline-block for transform
+              className="inline-block"
             >
               <ArrowUp />
             </motion.span>
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         {/* Social Icons */}
-        {/* ... (rest of your social icons code) ... */}
         <motion.div
           className="flex flex-row space-x-2"
           variants={{
@@ -147,11 +151,14 @@ export default function Foooter() {
           >
             <LinkedIn />
           </motion.a>
-          <motion.div>
-            <Email />
-          </motion.div>
           <motion.a
-            href=""
+            href="mailto:saadbashar1433@gmail.com"
+            target="_blank"
+          >
+            <Email />
+          </motion.a>
+          <motion.a
+            href="https://x.com/@worldwidesaad"
             target="_blank"
           >
             <Twitter />
