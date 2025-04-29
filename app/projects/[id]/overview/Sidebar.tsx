@@ -63,7 +63,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sections }) => {
   // ... rest of the component (return statement) remains the same ...
 
   return (
-    <aside className="w-[360px] flex-shrink pr-20 pl-6 bg-[#111112] sticky top-0 self-start py-32 z-30 h-screen rounded-br-xl mb-10">
+    <aside className="w-[360px] hidden lg:block flex-shrink pr-20 pl-6 bg-[#111112] sticky top-0 self-start py-32 z-30 h-screen rounded-br-xl mb-10">
       <nav className="flex flex-col justify-start space-y-10">
         <h1 className="text-xl font-semibold text-[#F3F3F3] pl-2">Overview</h1>
         <ul className="space-y-5">
