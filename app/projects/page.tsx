@@ -80,7 +80,7 @@ const transition = { duration: 0.3, ease: "easeInOut" };
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        Creating meaningful connections, crafting intuitive <br /> experiences,
+        Creating meaningful connections, crafting intuitive experiences,
         and driving business success. One Project at a time.
       </motion.p>
 
