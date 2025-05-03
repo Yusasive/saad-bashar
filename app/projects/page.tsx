@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 // import { ArrowUp } from "@/components/SvgLogo";
-import Arrow from "@/public/images/projects/Vector.png";
 import { FiArrowUpRight } from "react-icons/fi";
 import Link from "next/link";
 
