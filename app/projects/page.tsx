@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 // import { ArrowUp } from "@/components/SvgLogo";
 import Arrow from "@/public/images/projects/Vector.png";
+import { FiArrowUpRight } from "react-icons/fi";
 import Link from "next/link";
 
 interface Project {
@@ -94,7 +95,7 @@ const transition = { duration: 0.3, ease: "easeInOut" };
               transition: { staggerChildren: 0.3 },
             },
           }}
-          className="space-y-8"
+          className="space-y-4 md:space-y-8"
         >
           {projects.map((project) => (
             <Link
@@ -111,22 +112,23 @@ const transition = { duration: 0.3, ease: "easeInOut" };
                 whileHover="hover"
                 animate="visible"
                 transition={{ ease: "easeOut", duration: 0.5 }}
-                className="rounded-2xl border border-[#CDCDCD33] p-6 space-y-4 pt-8 bg-[#0F0F0F] overflow-hidden" // Keep overflow-hidden here
+                className="rounded-2xl border border-[#CDCDCD33] p-4 md:p-6 space-y-4 bg-[#0F0F0F] overflow-hidden" // Keep overflow-hidden here
               >
                  <div className="flex flex-row justify-between items-center mb-4">
-                   <p className="text-2xl md:text-4xl text-[#F3F3F3]">
+                   <p className="text-[15px] sm:text-2xl md:text-4xl text-[#F3F3F3]">
                      {project.title}
                    </p>
                    <motion.div
                      variants={arrowVariants}
                      transition={transition}
                    >
-                     <Image src={Arrow} alt="Arrow" width={23} height={23} className="block" />
+                     {/* <Image src={Arrow} alt="Arrow" width={23} height={23} className="block w-[15px] md:w-[23px] h-[15px]  md:h-23px" /> */}
+                     <FiArrowUpRight  className="block text-[#CDCDCD] text-[25px] sm:text-[35px] md:text-[45px]"/>
                    </motion.div>
                  </div>
 
                  <div className="flex flex-row justify-between mb-4">
-                    <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
+                    <p className="text-[12px] sm:text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
                      {project.categories.map((cat, index) => (
                        <span
                          key={index}
@@ -144,7 +146,7 @@ const transition = { duration: 0.3, ease: "easeInOut" };
                    </p>
                  </div>
                  
-                 <div className="overflow-hidden rounded-[24px]"> {/* Keep these */}
+                 <div className="overflow-hidden rounded-[6px] sm:rounded-[12px] lg:rounded-[24px]"> {/* Keep these */}
                    <motion.div
                      variants={imageVariants}
                      transition={transition}
