@@ -75,7 +75,7 @@ const transition = { duration: 0.3, ease: "easeInOut" };
         Projects
       </motion.h1>
       <motion.p
-        className="text-[#F3F3F3] text-2xl md:text-[44px] leading-[24px] md:leading-[60px] font-[400] pt-3 pb-12 md:pb-24"
+        className="text-[#F3F3F3] text-[20px] sm:text-[30px] md:text-[44px] leading-[24px] md:leading-[60px] font-[400] pt-3 pb-12 md:pb-24"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}

@@ -170,13 +170,13 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
           initial="hidden"
           animate={brandControls}
           variants={staticContainerVariants}
-          className="hidden lg:flex justify-center gap-6 items-center mx-auto max-w-screen-lg" // Only flex on lg+
+          className="hidden lg:flex justify-center gap-6 items-center mx-auto max-w-screen-xl" // Only flex on lg+
         >
           {brandImages.map((imageSrc, i) => ( // Use original short array here
             <motion.div
               key={`static-img-${i}`}
               variants={staticLogoVariants}
-              className="flex items-center justify-center w-[200px] h-[100px]"
+              className="flex items-center justify-center w-[300px] h-[100px]"
             >
               <Image
                 src={imageSrc}
@@ -214,14 +214,14 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               <div
                 key={`marquee-img-${i}`}
                 // Use fixed width or padding to ensure consistent spacing
-                className="flex-shrink-0 px-4 py-2 mx-3 flex items-center justify-center h-[60px]"
+                className="flex-shrink-0 px-4 py-2 mx-3 flex items-center justify-center h-[90px]"
               >
                 <Image
                   src={imageSrc}
                   alt={`Brand logo scroll ${i + 1}`} // Changed alt slightly for clarity
-                  height={50} // Consistent height for marquee images
+                  height={80} // Consistent height for marquee images
                   width={0} // Auto width based on height
-                  style={{ width: 'auto', height: '50px', objectFit: 'contain' }}
+                  style={{ width: 'auto', height: '80px', objectFit: 'contain' }}
                   // No loading="lazy" to prevent gaps
                 />
               </div>
