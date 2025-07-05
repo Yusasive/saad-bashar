@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import SplashScreen from "@/components/SplashScreen";
+// import SplashScreen from "@/components/SplashScreen";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
@@ -25,9 +25,9 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
 
   return (
     <>
-      {!isSplashFinished ? (
+      {/* {!isSplashFinished ? (
         <SplashScreen onFinish={() => setIsSplashFinished(true)} />
-      ) : (
+      ) : ( */}
         <>
           <ToastContainer position="top-right" autoClose={3000} />
           <Navbar />
@@ -36,7 +36,7 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
           {/* Conditionally render the Footer */}
           {showFooter && <Footer />}
         </>
-      )}
+      {/* )} */}
     </>
   );
 }
