@@ -1,7 +1,7 @@
 // Add this directive at the very top of the file
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 import { usePathname } from "next/navigation";
 // import SplashScreen from "@/components/SplashScreen";
 import Navbar from "@/components/NavBar";
@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function AppWrapper({ children }: { children: React.ReactNode }) {
-  const [isSplashFinished, setIsSplashFinished] = useState(false);
+  // const [isSplashFinished, setIsSplashFinished] = useState(false);
   const pathname = usePathname();
 
   // Corrected Regular Expression: Matches /projects/ followed by one or more characters
