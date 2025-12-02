@@ -7,8 +7,7 @@ const seeAlsoItems = [
       "https://res.cloudinary.com/ddxssowqb/image/upload/v1742046915/Frame_228_scgmuw.svg",
     category: "UI/UX • Insurtech",
     year: "2024",
-    title:
-      "Accessing Data on Insured Buildings and Buildings Under Construction",
+    title: "BFICS - Digitizing Fire Inspection and Certification Processes",
     link: "/projects/1",
   },
   {
