@@ -2,21 +2,29 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const seeAlsoItems = [
-  {
-    image:
-      "https://res.cloudinary.com/ddxssowqb/image/upload/v1742046915/Frame_228_scgmuw.svg",
-    category: "UI/UX • Insurtech",
-    year: "2024",
-    title: "BFICS - Digitizing Fire Inspection and Certification Processes",
-    link: "/projects/1",
-  },
+  // {
+  //   image:
+  //     "https://res.cloudinary.com/ddxssowqb/image/upload/v1742046915/Frame_228_scgmuw.svg",
+  //   category: "UI/UX • Insurtech",
+  //   year: "2024",
+  //   title: "BFICS - Digitizing Fire Inspection and Certification Processes",
+  //   link: "/projects/1",
+  // },
   {
     image:
       "https://res.cloudinary.com/ddxssowqb/image/upload/v1742047243/Frame_228_1_uya5qe.svg",
     category: "UI/UX • Insurtech",
     year: "2024",
     title: "Doshup Savings and Investment Mobile Application Casestudy",
-    link: "/projects/2",
+    link: "/projects/2/overview/two",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/ddxssowqb/image/upload/v1742047462/macbook-16-pro-mockup-on-concrete-background-front-view_1_fkpvqx.png",
+    category: "UI/UX • Fintech",
+    year: "2024",
+    title: "Insurance Committee Dashboard Casestudy",
+    link: "/projects/3/overview/three",
   },
 ];
 
