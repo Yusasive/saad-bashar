@@ -14,6 +14,7 @@ import {
   Audition,
   Premiere,
 } from "../SvgLogo"; // Verify path
+import { FaFigma } from "react-icons/fa6";
 
 export default function PreFooter() {
   // --- Data rows as provided by you ---
@@ -29,6 +30,7 @@ export default function PreFooter() {
     // Ensure icons render correctly in Marquee
     { text: "Illustrator", icon: <DiIllustrator /> },
     { text: "Photoshop", icon: <Photoshop /> },
+    {text: "Figma", icon: <FaFigma />},
     { text: "Framer", icon: <Framer /> },
     { text: "Premiere Pro", icon: <Premiere /> },
     { text: "Sketch", icon: <Sketch /> },

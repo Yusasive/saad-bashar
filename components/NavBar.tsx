@@ -13,6 +13,9 @@ export default function Navbar() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === "undefined") return;
+
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const scrollHeight =
@@ -21,9 +24,16 @@ export default function Navbar() {
       setScrollProgress(progress);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial calculation
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Use requestAnimationFrame to ensure DOM is ready
+    const rafId = requestAnimationFrame(() => {
+      handleScroll();
+      window.addEventListener("scroll", handleScroll);
+    });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // Variants for the arrow rotation

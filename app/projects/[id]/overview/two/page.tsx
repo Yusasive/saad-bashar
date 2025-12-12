@@ -2,6 +2,7 @@
 
 "use client";
 
+import Image from "next/image";
 import Sidebar from "../Sidebar";
 import MobileStepper from "../MobileSidebar";
 import {
@@ -14,7 +15,16 @@ import {
   SeventhImage,
   EightImage,
 } from "@/components/PageThreeIcons";
-import SeeMore from "@/components/homepage/SeeMore";
+import { SeeAlsoTwo } from "@/components/homepage/SeeMore";
+import one from "@/public/projects/protwoimgone.png";
+import two from "@/public/projects/protwoimgtwo.png";
+import three from "@/public/projects/protwoimgthree.png";
+import four from "@/public/projects/protwoimgfour.png";
+import five from "@/public/projects/protwoimgfive.png";
+import six from "@/public/projects/protwoimgsix.png";
+import seven from "@/public/projects/protwoimgseven.png";
+import eight from "@/public/projects/protwoimgeigth.png";
+
 
 export default function Home() {
   const sections = [
@@ -83,7 +93,12 @@ export default function Home() {
               </h1>
               {/* ... rest of solution content ... */}
               <div className="flex flex-row justify-end space-x-6">
-                <FirstImage />
+                {/* Show image on small devices, hide on lg+ */}
+                <Image src={one} alt="First Image" className="block lg:hidden w-full max-w-full" />
+                {/* Show SVG on lg+ devices, hide on small */}
+                <div className="hidden lg:block">
+                  <FirstImage />
+                </div>
               </div>
 
               <p className="text-4xl text-[#CDCDCD] ">
@@ -107,10 +122,20 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-row space-x-6">
-                <SecondImage />
+                {/* Show image on small devices, hide on lg+ */}
+                <Image src={two} alt="Second Image" className="block lg:hidden w-full max-w-full" />
+                {/* Show SVG on lg+ devices, hide on small */}
+                <div className="hidden lg:block">
+                  <SecondImage />
+                </div>
               </div>
               <div className="flex flex-row space-x-6">
-                <ThirdImage />
+                {/* Show image on small devices, hide on lg+ */}
+                <Image src={three} alt="Third Image" className="block lg:hidden w-full max-w-full" />
+                {/* Show SVG on lg+ devices, hide on small */}
+                <div className="hidden lg:block">
+                  <ThirdImage />
+                </div>
               </div>
               <p className="text-[20px] md:text-2xl text-[#CDCDCD] font-semibold ">
                 Introducing Geographic Relevance: Dynamic Map Integration
@@ -129,7 +154,12 @@ export default function Home() {
                 across Nigeria, helping them make informed decisions.
               </p>
               <div className="flex flex-row space-x-6">
-                <FourthImage />
+                {/* Show image on small devices, hide on lg+ */}
+                <Image src={four} alt="Fourth Image" className="block lg:hidden w-full max-w-full" />
+                {/* Show SVG on lg+ devices, hide on small */}
+                <div className="hidden lg:block">
+                  <FourthImage />
+                </div>
               </div>
               <p className="text-3xl text-[#CDCDCD] ">
                 Enhancing User Interaction: Verifying and Regularizing Building
@@ -156,16 +186,36 @@ export default function Home() {
               </p>
 
               <div className="flex flex-row space-x-6 justify-end">
-                <FifthImage />
+                {/* Show image on small devices, hide on lg+ */}
+                <Image src={five} alt="Fifth Image" className="block lg:hidden w-full max-w-full" />
+                {/* Show SVG on lg+ devices, hide on small */}
+                <div className="hidden lg:block">
+                  <FifthImage />
+                </div>
               </div>
               <div className="flex flex-row space-x-6">
-                <SixthImage />
+                {/* Show image on small devices, hide on lg+ */}
+                <Image src={six} alt="Sixth Image" className="block lg:hidden w-full max-w-full" />
+                {/* Show SVG on lg+ devices, hide on small */}
+                <div className="hidden lg:block">
+                  <SixthImage />
+                </div>
               </div>
               <div className="flex flex-row space-x-6 justify-end">
-                <SeventhImage />
+                {/* Show image on small devices, hide on lg+ */}
+                <Image src={seven} alt="Seventh Image" className="block lg:hidden w-full max-w-full" />
+                {/* Show SVG on lg+ devices, hide on small */}
+                <div className="hidden lg:block">
+                  <SeventhImage />
+                </div>
               </div>
               <div className="flex flex-row space-x-6">
-                <EightImage />
+                {/* Show image on small devices, hide on lg+ */}
+                <Image src={eight} alt="Eighth Image" className="block lg:hidden w-full max-w-full" />
+                {/* Show SVG on lg+ devices, hide on small */}
+                <div className="hidden lg:block">
+                  <EightImage />
+                </div>
               </div>
             </section>
 
@@ -221,7 +271,7 @@ export default function Home() {
       </div>
 
       <div className="bg-[#111112] pb-10">
-        <SeeMore />
+        <SeeAlsoTwo />
       </div>
     </div>
   );

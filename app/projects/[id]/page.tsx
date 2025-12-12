@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Clock, Building, Tags } from "@/components/SvgLogo";
 import { BackArrow } from "@/components/homepage/Iconts";
 import StickyButton from "@/components/HomeButton";
+import { fetchWithTimeout } from "@/lib/fetchWithTimeout";
 // import { SecondImgProject } from "@/components/HomeButton";
 import SecImg from "../../../public/secprojectimg.svg";
 interface Project {
@@ -33,37 +34,91 @@ export default function ProjectDetails() {
 
   const [project, setProject] = useState<Project | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProject = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const res = await fetch("/data/product.json");
-        if (!res.ok) throw new Error("Failed to load project");
+        const res = await fetchWithTimeout("/data/product.json", {
+          timeout: 8000,
+          retries: 2,
+        });
         const data: Project[] = await res.json();
         const found = data.find((proj) => proj._id === id);
         setProject(found ?? null);
+        if (!found) {
+          setError("Project not found");
+        }
       } catch (err) {
-        setError((err as Error).message);
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Failed to load project. Please try again."
+        );
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchProject();
+    if (id) {
+      fetchProject();
+    }
   }, [id]);
 
-  if (error) {
-    return <p className="text-red-500 text-center py-20">Error: {error}</p>;
-  }
-
-  if (!project) {
+  if (loading) {
     return (
-      <motion.p
-        className="text-white text-center py-52"
+      <motion.div
+        className="min-h-screen bg-[#111112] flex items-center justify-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        Project not found.
-      </motion.p>
+        <p className="text-white text-xl">Loading project...</p>
+      </motion.div>
+    );
+  }
+
+  if (error) {
+    return (
+      <motion.div
+        className="min-h-screen bg-[#111112] flex items-center justify-center p-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="text-center space-y-4">
+          <p className="text-red-500 text-xl">Error: {error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="bg-[#34C759] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#2FB04A] transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+      </motion.div>
+    );
+  }
+
+  if (!project) {
+    return (
+      <motion.div
+        className="min-h-screen bg-[#111112] flex items-center justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="text-center space-y-4">
+          <p className="text-white text-xl">Project not found.</p>
+          <Link
+            href="/projects"
+            className="text-[#34C759] hover:underline"
+          >
+            Back to Projects
+          </Link>
+        </div>
+      </motion.div>
     );
   }
 

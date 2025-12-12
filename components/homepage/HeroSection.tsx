@@ -88,7 +88,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
           initial={{ x: -100, opacity: 0, rotate: -3 }}
           animate={{ x: 0, opacity: 1, rotate: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex flex-row justify-between text-[#CDCDCD] text-[12px] md:text-[20px] lg:text-[28px] gap-2"
+          className="flex items-start flex-row justify-between text-[#CDCDCD] text-[12px] md:text-[20px] lg:text-[28px] gap-2"
         >
              <p className="w-[7rem] md:w-full text-left text-[14px] md:text-[25px]">
                  Hi, I am{" "}
