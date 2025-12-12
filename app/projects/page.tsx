@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { fetchWithTimeout } from "@/lib/fetchWithTimeout";
 // import { ArrowUp } from "@/components/SvgLogo";
 import { FiArrowUpRight } from "react-icons/fi";
 import Link from "next/link";
@@ -23,13 +24,21 @@ export default function ProjectOverview() {
 
   useEffect(() => {
     const fetchProjects = async () => {
+      setLoading(true);
+      setError("");
       try {
-        const res = await fetch("/data/product.json");
-        if (!res.ok) throw new Error("Failed to load projects");
+        const res = await fetchWithTimeout("/data/product.json", {
+          timeout: 8000,
+          retries: 2,
+        });
         const data: Project[] = await res.json();
         setProjects(data.slice(0, 3)); 
       } catch (err) {
-        setError((err as Error).message);
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Failed to load projects. Please try again."
+        );
       } finally {
         setLoading(false);
       }
