@@ -9,8 +9,10 @@ import { Clock, Building, Tags } from "@/components/SvgLogo";
 import { BackArrow } from "@/components/homepage/Iconts";
 import StickyButton from "@/components/HomeButton";
 import { fetchWithTimeout } from "@/lib/fetchWithTimeout";
+import Loader from "@/components/Loader";
 // import { SecondImgProject } from "@/components/HomeButton";
 import SecImg from "../../../public/secprojectimg.svg";
+
 interface Project {
   _id: string;
   title: string;
@@ -69,14 +71,9 @@ export default function ProjectDetails() {
 
   if (loading) {
     return (
-      <motion.div
-        className="min-h-screen bg-[#111112] flex items-center justify-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <p className="text-white text-xl">Loading project...</p>
-      </motion.div>
+      <div className="min-h-screen bg-[#111112] flex items-center justify-center">
+        <Loader />
+      </div>
     );
   }
 

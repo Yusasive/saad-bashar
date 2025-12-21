@@ -7,6 +7,7 @@ import { fetchWithTimeout } from "@/lib/fetchWithTimeout";
 import Arrow from "@/public/images/projects/Vector.png";
 import { ArrowUp } from "@/components/SvgLogo";
 import Link from "next/link";
+import Loader from "@/components/Loader";
 
 interface Project {
   _id: string;
@@ -90,7 +91,7 @@ export default function ProjectOverview() {
 
       {/* Loading and Error States */}
       {loading && (
-        <motion.p /* ... */ className="text-gray-400">Loading...</motion.p>
+        <Loader />
       )}
       {error && (
         <motion.p /* ... */ className="text-red-500">{error}</motion.p>
@@ -126,51 +127,51 @@ export default function ProjectOverview() {
                 transition={{ ease: "easeOut", duration: 0.5 }}
                 className="rounded-2xl border border-[#CDCDCD33] p-6 space-y-4 pt-8 bg-[#0F0F0F] overflow-hidden" // Keep overflow-hidden here
               >
-                 <div className="flex flex-row justify-between items-center mb-4">
-                   <p className="text-2xl md:text-4xl text-[#F3F3F3]">
-                     {project.title}
-                   </p>
-                   <motion.div
-                     variants={arrowVariants}
-                     transition={transition}
-                   >
-                     <Image src={Arrow} alt="Arrow" width={23} height={23} className="block" />
-                   </motion.div>
-                 </div>
+                <div className="flex flex-row justify-between items-center mb-4">
+                  <p className="text-2xl md:text-4xl text-[#F3F3F3]">
+                    {project.title}
+                  </p>
+                  <motion.div
+                    variants={arrowVariants}
+                    transition={transition}
+                  >
+                    <Image src={Arrow} alt="Arrow" width={23} height={23} className="block" />
+                  </motion.div>
+                </div>
 
-                 <div className="flex flex-row justify-between mb-4">
-                    <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
-                     {project.categories.map((cat, index) => (
-                       <span
-                         key={index}
-                         className="inline-flex items-center space-x-1"
-                       >
-                         <span>{cat}</span>
-                         {index < project.categories.length - 1 && (
-                           <span className="text-[#CDCDCD73]">•</span>
-                         )}
-                       </span>
-                     ))}
-                   </p>
-                   <p className="text-xl md:text-[28px] text-[#CDCDCD] font-semibold font-mori">
-                     {project.year}
-                   </p>
-                 </div>
-                 
-                 <div className="overflow-hidden rounded-[24px]"> {/* Keep these */}
-                   <motion.div
-                     variants={imageVariants}
-                     transition={transition}
-                   >
-                     <Image
-                       src={project.image}
-                       alt={project.title}
-                       width={1366}
-                       height={713}
-                       className="w-full block transform" 
-                     />
-                   </motion.div>
-                 </div>
+                <div className="flex flex-row justify-between mb-4">
+                  <p className="text-lg md:text-2xl text-[#CDCDCD] font-semibold font-mori space-x-1">
+                    {project.categories.map((cat, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center space-x-1"
+                      >
+                        <span>{cat}</span>
+                        {index < project.categories.length - 1 && (
+                          <span className="text-[#CDCDCD73]">•</span>
+                        )}
+                      </span>
+                    ))}
+                  </p>
+                  <p className="text-xl md:text-[28px] text-[#CDCDCD] font-semibold font-mori">
+                    {project.year}
+                  </p>
+                </div>
+
+                <div className="overflow-hidden rounded-[24px]"> {/* Keep these */}
+                  <motion.div
+                    variants={imageVariants}
+                    transition={transition}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={1366}
+                      height={713}
+                      className="w-full block transform"
+                    />
+                  </motion.div>
+                </div>
 
               </motion.div>
             </Link>
@@ -192,7 +193,7 @@ export default function ProjectOverview() {
           >
             View More
             <motion.span
-             variants={arrowVariant2} 
+              variants={arrowVariant2}
               initial={{ y: 0 }} className="ml-2">
               <ArrowUp />
             </motion.span>

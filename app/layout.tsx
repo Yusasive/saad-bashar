@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import AppWrapper from "./AppWrapper";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import Loader from "@/components/Loader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +21,7 @@ const geistMono = Geist_Mono({
 function LoadingFallback() {
   return (
     <div className="min-h-screen bg-[#0f0f0f] flex items-center justify-center">
-      <div className="text-white">Loading...</div>
+      <Loader />
     </div>
   );
 }
